@@ -21,9 +21,6 @@ func _physics_process(delta):
 	var space_state = get_world_3d().direct_space_state
 	var mousepos = get_viewport().get_mouse_position()
 	
-	
-
-	
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
@@ -51,8 +48,9 @@ func _physics_process(delta):
 		var result = space_state.intersect_ray(query)
 		
 		var the_node := result['collider'] as RigidBody3D
-		if the_node.is_in_group('grabable'):
-			carrying = the_node
+		if the_node:
+			if the_node.is_in_group('grabable'):
+				carrying = the_node
 			
 	elif Input.is_action_just_pressed("right_click") && carrying:
 		carrying.freeze = false
@@ -68,7 +66,6 @@ func _physics_process(delta):
 		
 			
 	if carrying:
-		
 		carrying.freeze = true
 		for child in carrying.get_children():
 			if child is CollisionShape3D:
@@ -78,11 +75,6 @@ func _physics_process(delta):
 		carrying.position = $Pivot/Hands.global_position
 		carrying.rotation = $Pivot/Hands.global_rotation
 
-
-		
-		 
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
 	
 
 func _unhandled_input(event):
