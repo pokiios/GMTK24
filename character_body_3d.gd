@@ -30,6 +30,18 @@ func _physics_process(delta):
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
+		
+	var input_dir = Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
+	
+	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	if direction:
+		velocity.x = direction.x * SPEED
+		velocity.z = direction.z * SPEED
+	else:
+		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.z = move_toward(velocity.z, 0, SPEED)
+
+	move_and_slide()
 
 	if Input.is_action_just_pressed("right_click") && carrying == null:
 		var origin = camera.project_ray_origin(mousepos)
@@ -45,6 +57,13 @@ func _physics_process(delta):
 	elif Input.is_action_just_pressed("right_click") && carrying:
 		carrying.freeze = false
 		carry_col.disabled = false
+		carrying = null
+	
+	if Input.is_action_just_pressed("left_click") && carrying:
+		carrying.freeze = false
+		carry_col.disabled = false
+		
+		carrying.apply_impulse(-10 * transform.basis.z)
 		carrying = null
 		
 			
@@ -64,17 +83,7 @@ func _physics_process(delta):
 		 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	var input_dir = Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
 	
-	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-	if direction:
-		velocity.x = direction.x * SPEED
-		velocity.z = direction.z * SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-		velocity.z = move_toward(velocity.z, 0, SPEED)
-
-	move_and_slide()
 
 func _unhandled_input(event):
 	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
