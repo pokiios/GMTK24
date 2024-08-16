@@ -11,7 +11,7 @@ var mouse_sensitivity = 0.002  # radians/pixel
 
 @onready var camera = $Pivot/PlayerCamera
 var carrying :RigidBody3D = null
-#var joint
+var carry_col
 
 func _init():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -44,7 +44,6 @@ func _physics_process(delta):
 			
 	elif Input.is_action_just_pressed("right_click") && carrying:
 		carrying.freeze = false
-		var carry_col := carrying.get_child(0) as CollisionShape3D
 		carry_col.disabled = false
 		carrying = null
 		
@@ -52,7 +51,9 @@ func _physics_process(delta):
 	if carrying:
 		
 		carrying.freeze = true
-		var carry_col := carrying.get_child(0) as CollisionShape3D
+		for child in carrying.get_children():
+			if child is CollisionShape3D:
+				carry_col = child
 		carry_col.disabled = true
 		
 		carrying.position = $Pivot/Hands.global_position
