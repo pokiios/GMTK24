@@ -1,5 +1,5 @@
 extends CharacterBody3D
-
+class_name Player
 
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
@@ -7,6 +7,8 @@ const RAY_LENGTH = 1000
 
 
 var mouse_sensitivity = 0.002  # radians/pixel
+var throw_power = 0
+var mouse_right_down: bool = false
 
 
 @onready var camera = $Pivot/PlayerCamera
@@ -23,7 +25,11 @@ func _physics_process(delta):
 	
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-
+		
+	if mouse_right_down && carrying:
+		throw_power += 4 * delta
+		clamp(throw_power,0,10)
+	$Pivot/PlayerCamera/MarginContainer/VBoxContainer/ProgressBar.set_value(throw_power)
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
@@ -40,7 +46,7 @@ func _physics_process(delta):
 
 	move_and_slide()
 
-	if Input.is_action_just_pressed("right_click") && carrying == null:
+	if Input.is_action_just_released("right_click") && carrying == null:
 		var origin = camera.project_ray_origin(mousepos)
 		var end = origin + camera.project_ray_normal(mousepos) * RAY_LENGTH
 		var query = PhysicsRayQueryParameters3D.create(origin, end)
@@ -52,17 +58,19 @@ func _physics_process(delta):
 			if the_node.is_in_group('grabable'):
 				carrying = the_node
 			
-	elif Input.is_action_just_pressed("right_click") && carrying:
+	elif Input.is_action_just_released("right_click") && carrying:
 		carrying.freeze = false
 		carry_col.disabled = false
+		carrying.apply_impulse(-throw_power * transform.basis.z)
+		throw_power = 0
 		carrying = null
 	
-	if Input.is_action_just_pressed("left_click") && carrying:
-		carrying.freeze = false
-		carry_col.disabled = false
+	#if Input.is_action_just_pressed("left_click") && carrying:
+	#	carrying.freeze = false
+#		carry_col.disabled = false
 		
-		carrying.apply_impulse(-10 * transform.basis.z)
-		carrying = null
+#		carrying.apply_impulse(-10 * transform.basis.z)
+#		carrying = null
 		
 			
 	if carrying:
@@ -82,4 +90,10 @@ func _unhandled_input(event):
 		rotate_y(-event.relative.x * mouse_sensitivity)
 		$Pivot.rotate_x(-event.relative.y * mouse_sensitivity)
 		$Pivot.rotation.x = clamp($Pivot.rotation.x, -1.2, 1.2)
-	
+
+	if event is InputEventMouseButton:
+		if event.button_index == 2 and event.is_pressed():
+			mouse_right_down = true
+		elif event.button_index == 2 and event.is_released():
+			mouse_right_down = false
+			
