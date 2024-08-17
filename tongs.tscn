@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://b7ixidjwrf1em"]
+
+[ext_resource type="PackedScene" uid="uid://b42atr623xl0t" path="res://Assets/Models/MISC/cutensils_tongs_closed.fbx" id="1_kkxa5"]
+[ext_resource type="Script" path="res://tongs.gd" id="2_8mqoa"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_euhcr"]
+size = Vector3(0.001, 0.002, 0.01)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2sfvc"]
+size = Vector3(0.3, 0.05, 0.15)
+
+[node name="cutensils_tongs_closed" instance=ExtResource("1_kkxa5")]
+script = ExtResource("2_8mqoa")
+
+[node name="cutensils tongs closed" parent="." index="0"]
+transform = Transform3D(1.91069e-13, -4.37114e-06, 100, -100, -4.37114e-06, 0, 4.37114e-06, -100, -4.37114e-06, 0, 0, 0)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="cutensils tongs closed/StaticBody3D" index="1"]
+transform = Transform3D(-0.98928, 8.73493e-08, -0.146031, -8.74228e-08, -1, -5.91465e-09, -0.146031, 6.91522e-09, 0.98928, -0.000558922, -1.62994e-10, 0.0024362)
+shape = SubResource("BoxShape3D_euhcr")
+
+[node name="Area3D" type="Area3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.694, 1.00344, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.81108, -0.837676, -0.00138503)
+shape = SubResource("BoxShape3D_2sfvc")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
