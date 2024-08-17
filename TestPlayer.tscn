@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dcsskaspr4ih1"]
+[gd_scene load_steps=9 format=3 uid="uid://dcsskaspr4ih1"]
 
 [ext_resource type="PackedScene" uid="uid://tupsuf748h5x" path="res://player.tscn" id="1_044gf"]
 [ext_resource type="PackedScene" uid="uid://b7ixidjwrf1em" path="res://tongs.tscn" id="2_vf2il"]
+[ext_resource type="PackedScene" uid="uid://bjj345xkkhs22" path="res://pot.tscn" id="3_g3af2"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_owmqd"]
 size = Vector3(20, 1, 20)
@@ -9,8 +10,17 @@ size = Vector3(20, 1, 20)
 [sub_resource type="BoxMesh" id="BoxMesh_jbv73"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_vo86q"]
+height = 0.5
+radius = 0.05
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_ylobc"]
+top_radius = 0.05
+bottom_radius = 0.05
+height = 0.5
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_kbuww"]
+height = 0.7
+radius = 0.1
 
 [node name="Node3D" type="Node3D"]
 
@@ -52,5 +62,14 @@ shape = SubResource("CylinderShape3D_vo86q")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D"]
 mesh = SubResource("CylinderMesh_ylobc")
 
+[node name="Area3D" type="Area3D" parent="RigidBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D/Area3D"]
+shape = SubResource("CylinderShape3D_kbuww")
+disabled = true
+
 [node name="cutensils_tongs_closed" parent="." instance=ExtResource("2_vf2il")]
 transform = Transform3D(0.997753, -0.0670053, 0, 0.0670053, 0.997753, 0, 0, 0, 1, -4.9876, -0.529347, -4.00323)
+
+[node name="Pot2" parent="." instance=ExtResource("3_g3af2")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -4.06728, -0.395674, -2.78635)
