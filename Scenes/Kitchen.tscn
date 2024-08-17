@@ -1,0 +1,172 @@
+[gd_scene load_steps=23 format=3 uid="uid://bujp0tjg4sqwv"]
+
+[ext_resource type="PackedScene" uid="uid://1m6n6284wfwn" path="res://Assets/Models/Cupboards/Cupboard F.fbx" id="1_wl45t"]
+[ext_resource type="PackedScene" uid="uid://b5x1qa5dc6hda" path="res://Assets/Models/MISC/Socket.fbx" id="3_evkav"]
+[ext_resource type="PackedScene" uid="uid://clgbgohqchyjl" path="res://Assets/Models/MISC/Light Switch.fbx" id="4_jcpx3"]
+[ext_resource type="PackedScene" uid="uid://ckuty6kjdx31j" path="res://Assets/Models/MISC/Radiator A.fbx" id="5_g57xq"]
+[ext_resource type="PackedScene" uid="uid://brfpmmpevj8px" path="res://Assets/Models/Kitchen Roll/Kitchen Roll.fbx" id="6_n2pqu"]
+[ext_resource type="PackedScene" uid="uid://bo0oj5ivgfkw2" path="res://Assets/Models/Kettle/Kettle.fbx" id="7_lqmx1"]
+[ext_resource type="PackedScene" uid="uid://eim43dxhmpqt" path="res://Assets/Models/Cupboards/Cupboard C.fbx" id="9_mh32m"]
+[ext_resource type="PackedScene" uid="uid://dnucfu7nvd2tx" path="res://Assets/Models/Cupboards/Cupboard D.fbx" id="10_48iag"]
+[ext_resource type="PackedScene" uid="uid://ddxhdau1n56eb" path="res://Assets/Models/Cupboards/Cupboard B.fbx" id="12_jns8a"]
+[ext_resource type="PackedScene" uid="uid://62qlkuqmtsdw" path="res://Assets/Models/Cupboards/Cupboard E.fbx" id="12_udepq"]
+[ext_resource type="PackedScene" uid="uid://ddntjnlggfltq" path="res://Assets/Models/Cupboards/Cupboard A.fbx" id="13_ml7si"]
+[ext_resource type="PackedScene" uid="uid://btkgju7dyjqhs" path="res://Assets/Models/Ceiling Light/Ceiling Light.fbx" id="14_2f8nh"]
+[ext_resource type="PackedScene" uid="uid://dc3s56kgovwgk" path="res://Assets/Models/MISC/Bin.fbx" id="14_54ki6"]
+[ext_resource type="PackedScene" uid="uid://dgjx0lcosrxb" path="res://Assets/Models/Toaster/Toaster.fbx" id="16_i0kou"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_uv802"]
+size = Vector2(5, 3)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_33olt"]
+data = PackedVector3Array(2.5, -1.5, 0, -2.5, -1.5, 0, 2.5, 1.5, 0, -2.5, -1.5, 0, -2.5, 1.5, 0, 2.5, 1.5, 0)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_eu5ki"]
+data = PackedVector3Array(2.5, -1.5, 0, -2.5, -1.5, 0, 2.5, 1.5, 0, -2.5, -1.5, 0, -2.5, 1.5, 0, 2.5, 1.5, 0)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_wi3em"]
+data = PackedVector3Array(2.5, -1.5, 0, -2.5, -1.5, 0, 2.5, 1.5, 0, -2.5, -1.5, 0, -2.5, 1.5, 0, 2.5, 1.5, 0)
+
+[sub_resource type="QuadMesh" id="QuadMesh_p02f3"]
+size = Vector2(5, 5)
+subdivide_width = 2
+subdivide_depth = 2
+orientation = 1
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_fccie"]
+data = PackedVector3Array(2.5, 0, 2.5, 0.8333, 0, 2.5, 2.5, 0, 0.8333, 0.8333, 0, 2.5, 0.8333, 0, 0.8333, 2.5, 0, 0.8333, 0.8333, 0, 2.5, -0.8333, 0, 2.5, 0.8333, 0, 0.8333, -0.8333, 0, 2.5, -0.8333, 0, 0.8333, 0.8333, 0, 0.8333, -0.8333, 0, 2.5, -2.5, 0, 2.5, -0.8333, 0, 0.8333, -2.5, 0, 2.5, -2.5, 0, 0.8333, -0.8333, 0, 0.8333, 2.5, 0, 0.8333, 0.8333, 0, 0.8333, 2.5, 0, -0.8333, 0.8333, 0, 0.8333, 0.8333, 0, -0.8333, 2.5, 0, -0.8333, 0.8333, 0, 0.8333, -0.8333, 0, 0.8333, 0.8333, 0, -0.8333, -0.8333, 0, 0.8333, -0.8333, 0, -0.8333, 0.8333, 0, -0.8333, -0.8333, 0, 0.8333, -2.5, 0, 0.8333, -0.8333, 0, -0.8333, -2.5, 0, 0.8333, -2.5, 0, -0.8333, -0.8333, 0, -0.8333, 2.5, 0, -0.8333, 0.8333, 0, -0.8333, 2.5, 0, -2.5, 0.8333, 0, -0.8333, 0.8333, 0, -2.5, 2.5, 0, -2.5, 0.8333, 0, -0.8333, -0.8333, 0, -0.8333, 0.8333, 0, -2.5, -0.8333, 0, -0.8333, -0.8333, 0, -2.5, 0.8333, 0, -2.5, -0.8333, 0, -0.8333, -2.5, 0, -0.8333, -0.8333, 0, -2.5, -2.5, 0, -0.8333, -2.5, 0, -2.5, -0.8333, 0, -2.5)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_5ky55"]
+data = PackedVector3Array(2.5, 0, 2.5, 0.8333, 0, 2.5, 2.5, 0, 0.8333, 0.8333, 0, 2.5, 0.8333, 0, 0.8333, 2.5, 0, 0.8333, 0.8333, 0, 2.5, -0.8333, 0, 2.5, 0.8333, 0, 0.8333, -0.8333, 0, 2.5, -0.8333, 0, 0.8333, 0.8333, 0, 0.8333, -0.8333, 0, 2.5, -2.5, 0, 2.5, -0.8333, 0, 0.8333, -2.5, 0, 2.5, -2.5, 0, 0.8333, -0.8333, 0, 0.8333, 2.5, 0, 0.8333, 0.8333, 0, 0.8333, 2.5, 0, -0.8333, 0.8333, 0, 0.8333, 0.8333, 0, -0.8333, 2.5, 0, -0.8333, 0.8333, 0, 0.8333, -0.8333, 0, 0.8333, 0.8333, 0, -0.8333, -0.8333, 0, 0.8333, -0.8333, 0, -0.8333, 0.8333, 0, -0.8333, -0.8333, 0, 0.8333, -2.5, 0, 0.8333, -0.8333, 0, -0.8333, -2.5, 0, 0.8333, -2.5, 0, -0.8333, -0.8333, 0, -0.8333, 2.5, 0, -0.8333, 0.8333, 0, -0.8333, 2.5, 0, -2.5, 0.8333, 0, -0.8333, 0.8333, 0, -2.5, 2.5, 0, -2.5, 0.8333, 0, -0.8333, -0.8333, 0, -0.8333, 0.8333, 0, -2.5, -0.8333, 0, -0.8333, -0.8333, 0, -2.5, 0.8333, 0, -2.5, -0.8333, 0, -0.8333, -2.5, 0, -0.8333, -0.8333, 0, -2.5, -2.5, 0, -0.8333, -2.5, 0, -2.5, -0.8333, 0, -2.5)
+
+[sub_resource type="QuadMesh" id="QuadMesh_av31i"]
+size = Vector2(3.5, 3)
+
+[node name="Kitchen" type="Node3D"]
+
+[node name="Island" type="Node3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.25, 0.65, -1)
+
+[node name="Cupboard F" parent="Island" instance=ExtResource("1_wl45t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.01, 0)
+
+[node name="Cupboard F2" parent="Island" instance=ExtResource("1_wl45t")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.47, -0.01, -1.06431)
+
+[node name="Walls" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Walls"]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -2.465, 1.5, 0)
+mesh = SubResource("QuadMesh_uv802")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Walls/MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_33olt")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Walls"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.5, 1.5, 0)
+mesh = SubResource("QuadMesh_uv802")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Walls/MeshInstance3D2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/MeshInstance3D2/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_eu5ki")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Walls"]
+transform = Transform3D(1, 0, 7.10543e-15, 0, 1, 0, -7.10543e-15, 0, 1, 0.0174999, 1.5, -2.4825)
+mesh = SubResource("QuadMesh_uv802")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Walls/MeshInstance3D4"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/MeshInstance3D4/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_wi3em")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="Walls"]
+mesh = SubResource("QuadMesh_p02f3")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Walls/MeshInstance3D5"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/MeshInstance3D5/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_fccie")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="Walls"]
+transform = Transform3D(1, 0, 0, 0, -1, -8.74228e-08, 0, 8.74228e-08, -1, 0, 3, 0)
+mesh = SubResource("QuadMesh_p02f3")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Walls/MeshInstance3D6"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/MeshInstance3D6/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_5ky55")
+
+[node name="Socket2" parent="Walls" instance=ExtResource("3_evkav")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.48661, 0.276267, -2.19907)
+
+[node name="Socket" parent="Walls" instance=ExtResource("3_evkav")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.07735, 1.18576, -2.45979)
+
+[node name="Light Switch" parent="Walls" instance=ExtResource("4_jcpx3")]
+transform = Transform3D(-1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, -1, 0.492099, 1.57034, 2.46347)
+
+[node name="Radiator A" parent="Walls" instance=ExtResource("5_g57xq")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.41282, 0.52455, 0.432929)
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Walls"]
+transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, -0.75, 1.5, 2.5)
+mesh = SubResource("QuadMesh_av31i")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="Walls"]
+transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 4.04366, 1.5, 2.5)
+mesh = SubResource("QuadMesh_av31i")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="Walls"]
+transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0.973148, 4.34133, 2.5)
+mesh = SubResource("QuadMesh_av31i")
+
+[node name="Kitchen Roll" parent="." instance=ExtResource("6_n2pqu")]
+transform = Transform3D(-0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, -0.258819, -2.27171, 1.06811, 0.0139163)
+
+[node name="Kettle" parent="." instance=ExtResource("7_lqmx1")]
+transform = Transform3D(0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, 0.5, -2.2384, 1.13273, -2.21257)
+
+[node name="Counter" type="Node3D" parent="."]
+
+[node name="Cupboard C" parent="Counter" instance=ExtResource("9_mh32m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.06555, 0.65, -1.898)
+
+[node name="Cupboard C3" parent="Counter" instance=ExtResource("9_mh32m")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -2.01333, 0.65, -2.33229)
+
+[node name="Cupboard D" parent="Counter" instance=ExtResource("10_48iag")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.00399, 0.634186, -1.61544)
+
+[node name="Cupboard D2" parent="Counter" instance=ExtResource("10_48iag")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.99777, 0.634186, -0.159776)
+
+[node name="Cupboard E" parent="Counter" instance=ExtResource("12_udepq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.657, 0.623766, -1.882)
+
+[node name="Wall Cupboards" type="Node3D" parent="."]
+
+[node name="Cupboard B" parent="Wall Cupboards" instance=ExtResource("12_jns8a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.59, 1.9, -1.95)
+
+[node name="Cupboard B2" parent="Wall Cupboards" instance=ExtResource("12_jns8a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.003, 1.9, -1.95)
+
+[node name="Cupboard A" parent="Wall Cupboards" instance=ExtResource("13_ml7si")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.64069, 1.93784, -1.9913)
+
+[node name="Cupboard A2" parent="Wall Cupboards" instance=ExtResource("13_ml7si")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.14486, 1.93784, -1.9913)
+
+[node name="Bin" parent="." instance=ExtResource("14_54ki6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1813, 0.36667, 2.24687)
+
+[node name="Toaster" parent="." instance=ExtResource("16_i0kou")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -1.61257, 1.01838, -2.37222)
+
+[node name="Ceiling Light" parent="." instance=ExtResource("14_2f8nh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.64102, 0)
