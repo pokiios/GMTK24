@@ -34,8 +34,7 @@ import_script/path=""
 _subresources={
 "nodes": {
 "PATH:Pot": {
-"generate/physics": true,
-"physics/body_type": 1
+"generate/physics": true
 }
 }
 }

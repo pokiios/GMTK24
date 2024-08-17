@@ -57,12 +57,26 @@ func _physics_process(delta):
 		if the_node:
 			if the_node.is_in_group('grabable'):
 				carrying = the_node
+				
+				for child in carrying.get_children():
+					var cast_child := child as Area3D
+					if cast_child:
+						var child_shape := cast_child.get_child(0) as CollisionShape3D
+						if child_shape:
+							child_shape.disabled = false
 			
 	elif Input.is_action_just_released("right_click") && carrying:
 		carrying.freeze = false
 		carry_col.disabled = false
 		carrying.apply_impulse(-throw_power * transform.basis.z)
 		throw_power = 0
+		
+		for child in carrying.get_children():
+			var cast_child := child as Area3D
+			if cast_child:
+				var child_shape := cast_child.get_child(0) as CollisionShape3D
+				if child_shape:
+					child_shape.disabled = true
 		carrying = null
 	
 	#if Input.is_action_just_pressed("left_click") && carrying:

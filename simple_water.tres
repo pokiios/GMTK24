@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://bcye12ji8fbb3"]
+
+[resource]
+transparency = 1
+albedo_color = Color(0.0823529, 1, 1, 0.141176)
+rim = 0.25
+rim_tint = 0.0
+clearcoat = 0.0
+clearcoat_roughness = 0.47
+refraction_scale = -0.16
