@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://dcsskaspr4ih1"]
+[gd_scene load_steps=9 format=3 uid="uid://dcsskaspr4ih1"]
 
 [ext_resource type="PackedScene" uid="uid://tupsuf748h5x" path="res://player.tscn" id="1_044gf"]
 [ext_resource type="PackedScene" uid="uid://b7ixidjwrf1em" path="res://tongs.tscn" id="2_vf2il"]
 [ext_resource type="PackedScene" uid="uid://bjj345xkkhs22" path="res://pot.tscn" id="3_g3af2"]
 [ext_resource type="PackedScene" uid="uid://dp4nmgrwgc8s6" path="res://mug.tscn" id="4_m3h3p"]
+[ext_resource type="PackedScene" uid="uid://cc3dukq7jtfdi" path="res://knife.tscn" id="5_yppjm"]
+[ext_resource type="PackedScene" uid="uid://crkx2lq2d6up1" path="res://potato.tscn" id="6_jqnku"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_owmqd"]
 size = Vector3(20, 1, 20)
@@ -28,14 +30,14 @@ transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
 
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 5, 0)
-light_color = Color(1, 0, 1, 1)
+light_color = Color(1, 0.457604, 0.987996, 1)
 light_energy = 1.952
 light_indirect_energy = 10.714
 shadow_enabled = true
-spot_range = 8.203
-spot_attenuation = -1.62
-spot_angle = 55.71
-spot_angle_attenuation = 1.8025
+spot_range = 6.729
+spot_attenuation = -1.27
+spot_angle = 40.71
+spot_angle_attenuation = 13.9288
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 light_color = Color(0.183794, 0.362006, 0.764958, 1)
@@ -54,3 +56,22 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -4.06728, -0.395674, -2.78635
 
 [node name="Mug" parent="." instance=ExtResource("4_m3h3p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.65262, -0.482337, -1.98077)
+
+[node name="Knife" parent="." instance=ExtResource("5_yppjm")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="."]
+transform = Transform3D(0.823226, -2.48156e-08, 0.567714, -0.567714, -3.59843e-08, 0.823226, 0, -1, -4.37114e-08, 8.98208, 5, 0)
+light_color = Color(0, 0.942598, 0.942597, 1)
+light_energy = 3.286
+light_indirect_energy = 3.857
+light_volumetric_fog_energy = 6.333
+light_size = 0.036
+light_specular = 0.0
+shadow_enabled = true
+spot_range = 11.041
+spot_angle = 40.71
+
+[node name="Potato" parent="." instance=ExtResource("6_jqnku")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3943, 0, 0)
+chunk_scene = ExtResource("4_m3h3p")

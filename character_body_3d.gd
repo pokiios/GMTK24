@@ -64,6 +64,13 @@ func _physics_process(delta):
 						var child_shape := cast_child.get_child(0) as CollisionShape3D
 						if child_shape:
 							child_shape.disabled = false
+							
+				var cast_carrying := carrying as Knife
+				if cast_carrying:
+					carrying.rotation.y = -90
+					carrying.rotation.x = -180
+					carrying.rotation.z = 90
+
 			
 	elif Input.is_action_just_released("right_click") && carrying:
 		carrying.freeze = false
