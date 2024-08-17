@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://crkx2lq2d6up1"]
+
+[ext_resource type="Script" path="res://potato.gd" id="1_apl0b"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_82sfe"]
+radius = 0.2
+
+[sub_resource type="SphereMesh" id="SphereMesh_onbp2"]
+radius = 0.2
+height = 0.2
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_4qakq"]
+radius = 0.2
+
+[node name="Potato" type="RigidBody3D"]
+script = ExtResource("1_apl0b")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.60905, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("SphereShape3D_82sfe")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D"]
+transform = Transform3D(1, 0, 0, 0, 1.88888, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("SphereMesh_onbp2")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 0.595923, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("SphereShape3D_4qakq")
+
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
