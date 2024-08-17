@@ -32,15 +32,46 @@ animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={
+"meshes": {
+"Cube_008": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://Assets/Models/Fridge/fridge_body.res"
+},
+"Cube_127": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://Assets/Models/Fridge/fridge_bottom.res"
+},
+"Cube_128": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://Assets/Models/Fridge/fridge_top.res"
+}
+},
 "nodes": {
+"PATH:BottomPivot/Fridge B_001": {
+"generate/physics": true,
+"physics/shape_type": 2
+},
 "PATH:Fridge B": {
 "generate/physics": true
 },
-"PATH:Fridge B_001": {
-"generate/physics": true
-},
-"PATH:Fridge B_002": {
-"generate/physics": true
+"PATH:TopPivot/Fridge B_002": {
+"generate/physics": true,
+"physics/shape_type": 2
 }
 }
 }

@@ -1,0 +1,53 @@
+[gd_scene load_steps=6 format=3 uid="uid://cnxwvs2qw0lf7"]
+
+[ext_resource type="PackedScene" uid="uid://cfjxupaip2c2h" path="res://Assets/Models/Oven/Oven.fbx" id="1_2iatk"]
+[ext_resource type="Script" path="res://Scripts/Interactables/Oven.gd" id="2_2ttpf"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4h7v8"]
+size = Vector3(0.665771, 0.0971069, 0.129799)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_6vafo"]
+height = 0.0920474
+radius = 0.135664
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_spehw"]
+height = 0.0438279
+radius = 0.0574119
+
+[node name="Oven" instance=ExtResource("1_2iatk")]
+script = ExtResource("2_2ttpf")
+
+[node name="Oven_001" parent="." index="1"]
+transform = Transform3D(100, 0, 0, 0, -4.37114e-06, 100, 0, -100, -4.37114e-06, 2.94658e-05, -0.686903, 0.226634)
+
+[node name="HandleArea" type="Area3D" parent="Oven_001" index="1"]
+transform = Transform3D(0.01, 0, 0, 0, -4.37114e-10, -0.01, 0, 0.01, -4.37114e-10, -2.94658e-07, -0.000121156, 0.00606667)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Oven_001/HandleArea" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0032959, 0.00668335, 0.0130501)
+shape = SubResource("BoxShape3D_4h7v8")
+
+[node name="StoveArea" type="Area3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.175997, 0.181115, 0.000120863)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StoveArea" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0133398, 0)
+shape = SubResource("CylinderShape3D_6vafo")
+
+[node name="StoveLight" type="OmniLight3D" parent="StoveArea" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0232511, 0)
+light_color = Color(1, 0, 0, 1)
+omni_range = 0.122
+omni_attenuation = 2.281
+
+[node name="KnobArea" type="Area3D" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.262222, 0.0109129, 0.226453)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KnobArea" index="0"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_spehw")
+
+[connection signal="body_entered" from="Oven_001/HandleArea" to="." method="_on_handle_area_body_entered"]
+[connection signal="body_exited" from="Oven_001/HandleArea" to="." method="_on_handle_area_body_exited"]
+[connection signal="body_entered" from="KnobArea" to="." method="_on_knob_area_body_entered"]
+[connection signal="body_exited" from="KnobArea" to="." method="_on_knob_area_body_exited"]

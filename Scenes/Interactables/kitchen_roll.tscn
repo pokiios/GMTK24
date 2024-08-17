@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://bwy6ncrdrku2g"]
+
+[ext_resource type="PackedScene" uid="uid://brfpmmpevj8px" path="res://Assets/Models/Kitchen Roll/Kitchen Roll.fbx" id="1_0qb8r"]
+
+[node name="Kitchen Roll" instance=ExtResource("1_0qb8r")]
+
+[node name="Kitchen Roll" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+gravity_scale = 0.5
+
+[node name="Kitchen Roll" parent="Kitchen Roll" index="0"]
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0)
+
+[node name="CollisionShape3D" parent="Kitchen Roll" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0115112, 0.00343022, 1.06859e-15)

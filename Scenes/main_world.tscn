@@ -1,39 +1,45 @@
-[gd_scene load_steps=7 format=3 uid="uid://bd2adlwc8o2xe"]
+[gd_scene load_steps=8 format=3 uid="uid://bd2adlwc8o2xe"]
 
-[ext_resource type="PackedScene" uid="uid://bujp0tjg4sqwv" path="res://Scenes/Kitchen.tscn" id="1_c8006"]
-[ext_resource type="PackedScene" uid="uid://cfjxupaip2c2h" path="res://Assets/Models/Oven/Oven.fbx" id="2_im0ay"]
-[ext_resource type="PackedScene" uid="uid://b8kc0am6h06c1" path="res://Assets/Models/Cupboard Sink/Cupboard Sink.fbx" id="3_7wiyj"]
-[ext_resource type="PackedScene" uid="uid://dtu2clh6dk0ct" path="res://Assets/Models/Fridge/Fridge B.fbx" id="4_1loba"]
+[ext_resource type="PackedScene" uid="uid://jhhbujami2bv" path="res://Scenes/Kitchen.tscn" id="1_c8006"]
+[ext_resource type="PackedScene" uid="uid://c01jgf84mkxs2" path="res://Scenes/Interactables/sink.tscn" id="3_o6p3j"]
+[ext_resource type="PackedScene" uid="uid://cnxwvs2qw0lf7" path="res://Scenes/Interactables/oven.tscn" id="4_86qqo"]
+[ext_resource type="PackedScene" uid="uid://c6ukelnk3v1em" path="res://Scenes/Interactables/fridge.tscn" id="4_lck2t"]
+[ext_resource type="PackedScene" uid="uid://bwy6ncrdrku2g" path="res://Scenes/Interactables/kitchen_roll.tscn" id="5_1sota"]
 [ext_resource type="PackedScene" uid="uid://bmiacpcm8hs3q" path="res://player.tscn" id="5_id05n"]
 
-[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_sgubx"]
-plane = Plane(0, 0, -1, 0)
+[sub_resource type="BoxShape3D" id="BoxShape3D_doliq"]
+size = Vector3(2.66064, 3.8479, 0.490112)
 
 [node name="MainWorld" type="Node3D"]
 
 [node name="Kitchen" parent="." instance=ExtResource("1_c8006")]
 
-[node name="Oven" parent="Kitchen" instance=ExtResource("2_im0ay")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.23122, 0.811937, -2.00312)
+[node name="Cupboard Sink" parent="Kitchen" instance=ExtResource("3_o6p3j")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.20231, 0.846056, -0.896739)
 
-[node name="Cupboard Sink" parent="Kitchen" instance=ExtResource("3_7wiyj")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.20659, 0.844748, -0.825514)
+[node name="Oven" parent="Kitchen" instance=ExtResource("4_86qqo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.230759, 0.746061, -2.06018)
 
-[node name="Fridge B" parent="Kitchen" instance=ExtResource("4_1loba")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.53784, 1.16626, -2.07477)
+[node name="Fridge B" parent="Kitchen" instance=ExtResource("4_lck2t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.60092, 1.05168, -2.07934)
 
-[node name="OmniLight3D" type="OmniLight3D" parent="Kitchen"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00143242, 2.4742, -0.0158164)
-light_color = Color(1, 0.929412, 0.843137, 1)
-shadow_enabled = true
-shadow_bias = 0.05
-shadow_normal_bias = 2.0
-shadow_blur = 2.0
-omni_attenuation = 0.5
+[node name="Door" type="StaticBody3D" parent="Kitchen"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.59289, 1.76224, 2.49737)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Kitchen"]
-transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 2.1767)
-shape = SubResource("WorldBoundaryShape3D_sgubx")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Kitchen/Door"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.29126, -0.370728, 0.242059)
+shape = SubResource("BoxShape3D_doliq")
+
+[node name="Kitchen Roll" parent="Kitchen" instance=ExtResource("5_1sota")]
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -2.34456, 1.06656, -0.0935767)
 
 [node name="Player" parent="." instance=ExtResource("5_id05n")]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 1.08256, 0)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00143242, 2.43686, -0.0158164)
+light_color = Color(1, 0.929412, 0.843137, 1)
+shadow_bias = 0.7
+shadow_normal_bias = 6.848
+shadow_blur = 2.0
+omni_attenuation = 0.5

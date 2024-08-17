@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://c6ukelnk3v1em"]
+
+[ext_resource type="PackedScene" uid="uid://dtu2clh6dk0ct" path="res://Assets/Models/Fridge/Fridge B.fbx" id="1_tejvc"]
+[ext_resource type="Script" path="res://Scripts/Interactables/Fridge.gd" id="2_pavi0"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_e3omw"]
+size = Vector3(0.182526, 0.177246, 0.163818)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0e1bi"]
+size = Vector3(0.180115, 0.20874, 0.159729)
+
+[node name="Fridge B" instance=ExtResource("1_tejvc")]
+script = ExtResource("2_pavi0")
+
+[node name="BottomPivot" parent="." index="1"]
+transform = Transform3D(100, 0, 0, 0, -4.37114e-06, 100, 0, -100, -4.37114e-06, -0.451545, -0.552474, 0.102548)
+
+[node name="BottomHandleArea" type="Area3D" parent="BottomPivot" index="1"]
+transform = Transform3D(0.01, 0, 0, 0, -1.19209e-09, -0.01, 0, 0.01, -1.19209e-09, 0.00659384, -0.000312371, 0.00376804)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BottomPivot/BottomHandleArea" index="0"]
+transform = Transform3D(1, -1.01888e-22, 0, 4.00545e-19, 1, -6.77626e-21, 0, 1.60089e-18, 1, -0.00161906, 0.010498, 0.0208741)
+shape = SubResource("BoxShape3D_e3omw")
+
+[node name="TopHandleArea" type="Area3D" parent="TopPivot" index="1"]
+transform = Transform3D(0.01, 0, 0, 0, -1.19209e-09, -0.01, 0, 0.01, -1.19209e-09, 0.0065665, -0.000555039, -0.00230456)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TopPivot/TopHandleArea" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0019657, 0.0140381, 0.0191345)
+shape = SubResource("BoxShape3D_0e1bi")
+
+[node name="Node3D" type="Node3D" parent="." index="3"]
+
+[connection signal="body_entered" from="BottomPivot/BottomHandleArea" to="." method="_on_bottom_handle_area_body_entered"]
+[connection signal="body_exited" from="BottomPivot/BottomHandleArea" to="." method="_on_bottom_handle_area_body_exited"]
+[connection signal="body_entered" from="TopPivot/TopHandleArea" to="." method="_on_top_handle_area_body_entered"]
+[connection signal="body_exited" from="TopPivot/TopHandleArea" to="." method="_on_top_handle_area_body_exited"]

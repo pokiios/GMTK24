@@ -1,0 +1,56 @@
+[gd_scene load_steps=7 format=3 uid="uid://c01jgf84mkxs2"]
+
+[ext_resource type="PackedScene" uid="uid://b8kc0am6h06c1" path="res://Assets/Models/Cupboard Sink/Cupboard Sink.fbx" id="1_j1oo3"]
+[ext_resource type="Script" path="res://Scripts/Interactables/Sink.gd" id="2_cmevy"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_t8tvw"]
+size = Vector3(0.166812, 0.14826, 0.0783081)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_b4t6s"]
+size = Vector3(0.261719, 0.0770874, 0.140137)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6q047"]
+transparency = 1
+shading_mode = 2
+albedo_color = Color(0.392157, 1, 1, 0.27451)
+metallic_specular = 0.0
+roughness = 0.0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_130wn"]
+material = SubResource("StandardMaterial3D_6q047")
+top_radius = 0.005
+bottom_radius = 0.01
+height = 0.2
+
+[node name="Cupboard Sink" instance=ExtResource("1_j1oo3")]
+script = ExtResource("2_cmevy")
+
+[node name="GlassArea" type="Area3D" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00189108, -0.000920162, -0.0791119)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GlassArea" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00700797, 0.0270005, -0.0234832)
+shape = SubResource("BoxShape3D_t8tvw")
+
+[node name="TapArea" type="Area3D" parent="." index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.168832, -0.176584)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TapArea" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00390625, 0.0240784, -0.00381248)
+shape = SubResource("BoxShape3D_b4t6s")
+
+[node name="Water" type="Node3D" parent="." index="5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0611002, 0, -0.0965538)
+
+[node name="WaterRight" type="MeshInstance3D" parent="Water" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.125847, 0, 0)
+mesh = SubResource("CylinderMesh_130wn")
+skeleton = NodePath("../..")
+
+[node name="WaterLeft" type="MeshInstance3D" parent="Water" index="1"]
+mesh = SubResource("CylinderMesh_130wn")
+skeleton = NodePath("../..")
+
+[connection signal="body_entered" from="GlassArea" to="." method="_on_glass_area_body_entered"]
+[connection signal="body_entered" from="TapArea" to="." method="_on_tap_area_body_entered"]
+[connection signal="body_exited" from="TapArea" to="." method="_on_tap_area_body_exited"]
