@@ -35,7 +35,8 @@ _subresources={
 "nodes": {
 "PATH:salmon2": {
 "generate/physics": true,
-"physics/shape_type": 2
+"physics/body_type": 1,
+"physics/shape_type": 1
 }
 }
 }

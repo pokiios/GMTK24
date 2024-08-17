@@ -1,32 +1,29 @@
-[gd_scene load_steps=5 format=3 uid="uid://crkx2lq2d6up1"]
+[gd_scene load_steps=4 format=3 uid="uid://ct4kbra5578jw"]
 
-[ext_resource type="Script" path="res://potato.gd" id="1_apl0b"]
+[ext_resource type="Script" path="res://potato.gd" id="1_ve237"]
+[ext_resource type="PackedScene" uid="uid://cleoqfy3sdopy" path="res://Assets/Models/Food/potatoHalf.glb" id="2_vhx1e"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_82sfe"]
-radius = 0.2
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_thiw8"]
+radius = 0.1
+height = 0.4
 
-[sub_resource type="SphereMesh" id="SphereMesh_onbp2"]
-radius = 0.2
-height = 0.2
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_4qakq"]
-radius = 0.2
-
-[node name="Potato" type="RigidBody3D"]
-script = ExtResource("1_apl0b")
+[node name="Potato" type="RigidBody3D" groups=["grabable"]]
+script = ExtResource("1_ve237")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.60905, 0, 0, 0, 1, 0, 0, 0)
-shape = SubResource("SphereShape3D_82sfe")
+transform = Transform3D(-0.0643228, -0.997929, 0.000229021, 0.997923, -0.0643232, -0.00355309, 0.00356046, 1.74623e-10, 0.999994, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_thiw8")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D"]
-transform = Transform3D(1, 0, 0, 0, 1.88888, 0, 0, 0, 1, 0, 0, 0)
-mesh = SubResource("SphereMesh_onbp2")
+[node name="potatoHalf" parent="CollisionShape3D" instance=ExtResource("2_vhx1e")]
+transform = Transform3D(-1.09278e-07, 2.5, 0, -2.5, -1.09278e-07, 0, 0, 0, 2.5, -0.0813919, 0.00762519, 0.000289795)
+
+[node name="potatoHalf3" parent="CollisionShape3D/potatoHalf" instance=ExtResource("2_vhx1e")]
+transform = Transform3D(1, 0, 0, 0, -0.999062, 0.0433056, 0, -0.0433056, -0.999062, 0.000121415, 0.0709059, 0.00203145)
 
 [node name="Area3D" type="Area3D" parent="."]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 0.595923, 0, 0, 0, 1, 0, 0, 0)
-shape = SubResource("SphereShape3D_4qakq")
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(-0.0643228, -0.997929, 0.000229021, 0.997923, -0.0643232, -0.00355309, 0.00356046, 1.74623e-10, 0.999994, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_thiw8")
 
 [connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]

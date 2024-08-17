@@ -53,7 +53,7 @@ func _physics_process(delta):
 		query.collide_with_areas = true
 		var result = space_state.intersect_ray(query)
 		
-		var the_node := result['collider'] as RigidBody3D
+		var the_node := result['collider'] as Node3D
 		if the_node:
 			if the_node.is_in_group('grabable'):
 				carrying = the_node
