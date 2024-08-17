@@ -25,5 +25,30 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.566734, 0)
 current = true
 script = ExtResource("2_5fktn")
 
+[node name="MarginContainer" type="MarginContainer" parent="Pivot/PlayerCamera"]
+offset_right = 200.0
+offset_bottom = 100.0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Pivot/PlayerCamera/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 11
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Pivot/PlayerCamera/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 28
+text = "Throw Power"
+fit_content = true
+
+[node name="ProgressBar" type="ProgressBar" parent="Pivot/PlayerCamera/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+max_value = 10.0
+step = 0.1
+show_percentage = false
+
 [node name="Hands" type="Node3D" parent="Pivot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0603594, -1.83816)
