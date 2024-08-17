@@ -1,3 +1,39 @@
-[gd_scene format=3 uid="uid://bd2adlwc8o2xe"]
+[gd_scene load_steps=7 format=3 uid="uid://bd2adlwc8o2xe"]
+
+[ext_resource type="PackedScene" uid="uid://bujp0tjg4sqwv" path="res://Scenes/Kitchen.tscn" id="1_c8006"]
+[ext_resource type="PackedScene" uid="uid://cfjxupaip2c2h" path="res://Assets/Models/Oven/Oven.fbx" id="2_im0ay"]
+[ext_resource type="PackedScene" uid="uid://b8kc0am6h06c1" path="res://Assets/Models/Cupboard Sink/Cupboard Sink.fbx" id="3_7wiyj"]
+[ext_resource type="PackedScene" uid="uid://dtu2clh6dk0ct" path="res://Assets/Models/Fridge/Fridge B.fbx" id="4_1loba"]
+[ext_resource type="PackedScene" uid="uid://bmiacpcm8hs3q" path="res://player.tscn" id="5_id05n"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_sgubx"]
+plane = Plane(0, 0, -1, 0)
 
 [node name="MainWorld" type="Node3D"]
+
+[node name="Kitchen" parent="." instance=ExtResource("1_c8006")]
+
+[node name="Oven" parent="Kitchen" instance=ExtResource("2_im0ay")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.23122, 0.811937, -2.00312)
+
+[node name="Cupboard Sink" parent="Kitchen" instance=ExtResource("3_7wiyj")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.20659, 0.844748, -0.825514)
+
+[node name="Fridge B" parent="Kitchen" instance=ExtResource("4_1loba")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.53784, 1.16626, -2.07477)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Kitchen"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00143242, 2.4742, -0.0158164)
+light_color = Color(1, 0.929412, 0.843137, 1)
+shadow_enabled = true
+shadow_bias = 0.05
+shadow_normal_bias = 2.0
+shadow_blur = 2.0
+omni_attenuation = 0.5
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Kitchen"]
+transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 2.1767)
+shape = SubResource("WorldBoundaryShape3D_sgubx")
+
+[node name="Player" parent="." instance=ExtResource("5_id05n")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 1.08256, 0)

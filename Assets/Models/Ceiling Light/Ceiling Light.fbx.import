@@ -34,7 +34,8 @@ import_script/path=""
 _subresources={
 "nodes": {
 "PATH:Ceiling light": {
-"generate/physics": true
+"generate/physics": true,
+"mesh_instance/cast_shadow": 0
 }
 }
 }
