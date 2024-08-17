@@ -22,3 +22,4 @@ func _on_area_3d_area_entered(area):
 			chunk.global_position = Vector3(self.global_position.x + randf_range(0.1, 0.5),self.global_position.y+ randf_range(0.1, 0.5),self.global_position.z+randf_range(0.1, 0.5))
 			
 			self.call_deferred("free")
+	

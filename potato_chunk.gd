@@ -13,5 +13,10 @@ func _process(delta):
 
 
 func _on_area_3d_area_entered(area):
+	var body = area.get_parent()
 
+	var pot := body as Pot#Glass
+	if pot:
+		if pot.is_full:
+			pass #do boiling here
 	pass # Replace with function body.
