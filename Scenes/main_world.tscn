@@ -39,6 +39,9 @@ shape = SubResource("BoxShape3D_doliq")
 [node name="Kitchen Roll" parent="Kitchen" instance=ExtResource("5_1sota")]
 transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -2.34456, 1.06656, -0.0935767)
 
+[node name="Pot" parent="Kitchen" instance=ExtResource("7_75o6o")]
+transform = Transform3D(-0.943066, 0, -0.332606, 0, 1, 0, 0.332606, 0, -0.943066, -0.051679, 0.982406, -2.05298)
+
 [node name="Player" parent="." instance=ExtResource("5_id05n")]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 1.08256, 0)
 SPEED = 1.0
@@ -51,9 +54,6 @@ shadow_bias = 0.7
 shadow_normal_bias = 6.848
 shadow_blur = 2.0
 omni_attenuation = 0.5
-
-[node name="Pot" parent="." instance=ExtResource("7_75o6o")]
-transform = Transform3D(-0.943066, 0, -0.332606, 0, 1, 0, 0.332606, 0, -0.943066, -0.051679, 0.982406, -2.05298)
 
 [node name="Potato" parent="." instance=ExtResource("8_0u0xh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.567495, 0.98275, -0.789206)
