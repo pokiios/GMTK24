@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bmiacpcm8hs3q"]
+[gd_scene load_steps=7 format=3 uid="uid://bmiacpcm8hs3q"]
 
 [ext_resource type="Script" path="res://character_body_3d.gd" id="1_whoe0"]
 [ext_resource type="Script" path="res://player_camera.gd" id="2_5fktn"]
 [ext_resource type="Texture2D" uid="uid://b02on8bgp7ylw" path="res://UI/Images/crosshair.png" id="3_f2718"]
+[ext_resource type="Theme" uid="uid://dm63onoxy1vv1" path="res://UI/Theme/UI_theme.tres" id="3_orbel"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4y1b2"]
 size = Vector3(1, 0.5, 1)
@@ -37,6 +38,7 @@ anchor_right = 0.156
 anchor_bottom = 0.139
 offset_right = 0.319992
 offset_bottom = -0.0800095
+theme = ExtResource("3_orbel")
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10

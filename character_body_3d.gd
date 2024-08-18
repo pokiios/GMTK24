@@ -9,7 +9,7 @@ const RAY_LENGTH = 1000
 var mouse_sensitivity = 0.002  # radians/pixel
 var throw_power = 0
 var mouse_right_down: bool = false
-
+var mouse_toggle : bool = true
 
 @onready var camera = $Pivot/PlayerCamera
 var carrying :RigidBody3D = null
@@ -17,6 +17,12 @@ var carry_col
 
 func _init():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+
+func _process(delta: float) -> void:
+	if mouse_toggle:
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	if !mouse_toggle:
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
 func _physics_process(delta):
 	
@@ -118,3 +124,5 @@ func _unhandled_input(event):
 		elif event.button_index == 2 and event.is_released():
 			mouse_right_down = false
 			
+	if Input.is_action_just_pressed("mouse_toggle"):
+		mouse_toggle = !mouse_toggle
