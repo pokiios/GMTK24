@@ -1,8 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://bjj345xkkhs22"]
+[gd_scene load_steps=7 format=3 uid="uid://bjj345xkkhs22"]
 
 [ext_resource type="PackedScene" uid="uid://dy2hvy7a2yxeq" path="res://Assets/Models/Pot/Pot.fbx" id="1_pln6u"]
 [ext_resource type="Script" path="res://pot.gd" id="2_4lnjv"]
 [ext_resource type="Material" uid="uid://bcye12ji8fbb3" path="res://simple_water.tres" id="3_yf55n"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uix8k"]
+size = Vector3(0.015, 0.015, 0.003)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_abgei"]
 material = ExtResource("3_yf55n")
@@ -19,6 +22,10 @@ script = ExtResource("2_4lnjv")
 
 [node name="Pot" parent="." index="0"]
 transform = Transform3D(100, 0, 0, 0, -4.37114e-06, 100, 0, -100, -4.37114e-06, 0, 0, 0)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Pot/StaticBody3D" index="1"]
+transform = Transform3D(0.12, 0, 0, 0, 0.12, -1.33227e-15, 0, 1.33227e-15, 0.12, -6.38384e-05, 1.62081e-05, -0.000532074)
+shape = SubResource("BoxShape3D_uix8k")
 
 [node name="Water" type="MeshInstance3D" parent="." index="1"]
 visible = false
