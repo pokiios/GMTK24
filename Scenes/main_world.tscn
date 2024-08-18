@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bd2adlwc8o2xe"]
+[gd_scene load_steps=11 format=3 uid="uid://bd2adlwc8o2xe"]
 
 [ext_resource type="PackedScene" uid="uid://jhhbujami2bv" path="res://Scenes/Kitchen.tscn" id="1_c8006"]
 [ext_resource type="PackedScene" uid="uid://c01jgf84mkxs2" path="res://Scenes/Interactables/sink.tscn" id="3_o6p3j"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c6ukelnk3v1em" path="res://Scenes/Interactables/fridge.tscn" id="4_lck2t"]
 [ext_resource type="PackedScene" uid="uid://bwy6ncrdrku2g" path="res://Scenes/Interactables/kitchen_roll.tscn" id="5_1sota"]
 [ext_resource type="PackedScene" uid="uid://bmiacpcm8hs3q" path="res://player.tscn" id="5_id05n"]
+[ext_resource type="PackedScene" uid="uid://bjj345xkkhs22" path="res://pot.tscn" id="6_xesm6"]
 [ext_resource type="PackedScene" uid="uid://ddbt6bf8nvwg3" path="res://Scenes/Utility/countdown.tscn" id="7_ltseb"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_doliq"]
@@ -51,6 +52,9 @@ transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Kitchen"]
 environment = SubResource("Environment_2lbfe")
+
+[node name="Pot" parent="Kitchen" instance=ExtResource("6_xesm6")]
+transform = Transform3D(-0.629958, 0, -0.77663, 0, 1, 0, 0.77663, 0, -0.629958, -0.0658503, 1.00474, -2.06655)
 
 [node name="Player" parent="." instance=ExtResource("5_id05n")]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 1.08256, 0)
