@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://ddbt6bf8nvwg3"]
+[gd_scene load_steps=3 format=3 uid="uid://ddbt6bf8nvwg3"]
 
 [ext_resource type="Script" path="res://Scripts/Utility/Countdown.gd" id="1_47x5g"]
+[ext_resource type="Theme" uid="uid://dm63onoxy1vv1" path="res://UI/Theme/UI_theme.tres" id="2_7o11w"]
 
 [node name="Countdown" type="Node"]
 script = ExtResource("1_47x5g")
@@ -8,6 +9,7 @@ script = ExtResource("1_47x5g")
 [node name="Label" type="Label" parent="."]
 offset_right = 40.0
 offset_bottom = 23.0
+theme = ExtResource("2_7o11w")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 300.0

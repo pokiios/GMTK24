@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bd2adlwc8o2xe"]
+[gd_scene load_steps=9 format=3 uid="uid://bd2adlwc8o2xe"]
 
 [ext_resource type="PackedScene" uid="uid://jhhbujami2bv" path="res://Scenes/Kitchen.tscn" id="1_c8006"]
 [ext_resource type="PackedScene" uid="uid://c01jgf84mkxs2" path="res://Scenes/Interactables/sink.tscn" id="3_o6p3j"]
@@ -9,6 +9,21 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_doliq"]
 size = Vector3(2.66064, 3.8479, 0.490112)
+
+[sub_resource type="Environment" id="Environment_2lbfe"]
+background_color = Color(1, 1, 1, 1)
+ambient_light_color = Color(0.77351, 0.686282, 0.559841, 1)
+tonemap_mode = 1
+fog_mode = 1
+fog_light_color = Color(0.455213, 0.550507, 0.735603, 1)
+fog_density = 1.0
+fog_depth_begin = 0.5
+fog_depth_end = 20.0
+volumetric_fog_density = 0.3
+volumetric_fog_albedo = Color(0.844534, 0.833243, 0.862294, 1)
+volumetric_fog_anisotropy = -0.58
+adjustment_enabled = true
+adjustment_saturation = 2.0
 
 [node name="MainWorld" type="Node3D"]
 
@@ -32,6 +47,9 @@ shape = SubResource("BoxShape3D_doliq")
 
 [node name="Kitchen Roll" parent="Kitchen" instance=ExtResource("5_1sota")]
 transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -2.34456, 1.06656, -0.0935767)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Kitchen"]
+environment = SubResource("Environment_2lbfe")
 
 [node name="Player" parent="." instance=ExtResource("5_id05n")]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 1.08256, 0)

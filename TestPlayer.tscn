@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bjj345xkkhs22" path="res://pot.tscn" id="3_g3af2"]
 [ext_resource type="PackedScene" uid="uid://dp4nmgrwgc8s6" path="res://mug.tscn" id="4_m3h3p"]
 [ext_resource type="PackedScene" path="res://knife.tscn" id="5_yppjm"]
-[ext_resource type="PackedScene" uid="uid://ct4kbra5578jw" path="res://potato.tscn" id="6_jqnku"]
+[ext_resource type="PackedScene" path="res://potato.tscn" id="6_jqnku"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_owmqd"]
 size = Vector3(20, 1, 20)

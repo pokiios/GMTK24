@@ -1,0 +1,196 @@
+[gd_scene load_steps=16 format=3 uid="uid://d20u4i7oay67c"]
+
+[ext_resource type="Theme" uid="uid://bqdph7nqf8vne" path="res://UI/Theme/UI_Start_menu.tres" id="1_djxi4"]
+[ext_resource type="Script" path="res://Scripts/Utility/StartMenu.gd" id="1_iod2y"]
+[ext_resource type="PackedScene" uid="uid://jhhbujami2bv" path="res://Scenes/Kitchen.tscn" id="2_yuj0k"]
+[ext_resource type="PackedScene" uid="uid://dtu2clh6dk0ct" path="res://Assets/Models/Fridge/Fridge B.fbx" id="3_hfs4d"]
+[ext_resource type="PackedScene" uid="uid://cfjxupaip2c2h" path="res://Assets/Models/Oven/Oven.fbx" id="4_tmmtd"]
+[ext_resource type="PackedScene" uid="uid://b8kc0am6h06c1" path="res://Assets/Models/Cupboard Sink/Cupboard Sink.fbx" id="5_5plg1"]
+[ext_resource type="PackedScene" uid="uid://b0j84dh1ltjq7" path="res://Assets/Models/MISC/Mug.fbx" id="6_mnxst"]
+[ext_resource type="PackedScene" uid="uid://fji5qm6md8xd" path="res://Assets/Models/Cutting Board/board_cutting_board_002.fbx" id="7_3tlet"]
+[ext_resource type="PackedScene" uid="uid://cp3q0x1fupqrn" path="res://Assets/Models/Food/salmon.glb" id="8_xy5hl"]
+[ext_resource type="PackedScene" uid="uid://biq5laqidbn6i" path="res://Assets/Models/Knife/knife_chef_knife.fbx" id="9_tohq3"]
+[ext_resource type="PackedScene" uid="uid://bl3ypgreyvrue" path="res://Assets/Models/Plate/plate_021.fbx" id="10_dmie1"]
+
+[sub_resource type="Environment" id="Environment_owudn"]
+background_color = Color(1, 1, 1, 1)
+ambient_light_color = Color(0.77351, 0.686282, 0.559841, 1)
+tonemap_mode = 1
+fog_mode = 1
+fog_light_color = Color(0.455213, 0.550507, 0.735603, 1)
+fog_density = 1.0
+fog_depth_begin = 0.5
+fog_depth_end = 20.0
+volumetric_fog_density = 0.3
+volumetric_fog_albedo = Color(0.844534, 0.833243, 0.862294, 1)
+volumetric_fog_anisotropy = -0.58
+adjustment_enabled = true
+adjustment_saturation = 2.0
+
+[sub_resource type="Animation" id="Animation_6me6y"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BG/SubViewportContainer/SubViewport/Camera3D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.523599, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_p3l6s"]
+resource_name = "camera_animate"
+length = 16.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BG/SubViewportContainer/SubViewport/Camera3D:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 8, 16),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.523599, 0, 0), Vector3(-0.523599, 0.649262, 0), Vector3(-0.523599, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_x51gw"]
+_data = {
+"RESET": SubResource("Animation_6me6y"),
+"camera_animate": SubResource("Animation_p3l6s")
+}
+
+[node name="StartMenu" type="CanvasLayer"]
+script = ExtResource("1_iod2y")
+
+[node name="BG" type="Node3D" parent="."]
+
+[node name="Kitchen" parent="BG" instance=ExtResource("2_yuj0k")]
+
+[node name="Fridge B" parent="BG/Kitchen" instance=ExtResource("3_hfs4d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.56894, 1.12877, -1.97303)
+
+[node name="Oven" parent="BG/Kitchen" instance=ExtResource("4_tmmtd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.24003, 0.747896, -2.07513)
+
+[node name="Cupboard Sink" parent="BG/Kitchen" instance=ExtResource("5_5plg1")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.20038, 0.844892, -0.898191)
+
+[node name="Mug" parent="BG/Kitchen" instance=ExtResource("6_mnxst")]
+transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, -0.72287, 0.956418, 0)
+
+[node name="board_cutting_board_002" parent="BG/Kitchen" instance=ExtResource("7_3tlet")]
+transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 0.494428, 0.92021, -0.782595)
+
+[node name="salmon" parent="BG/Kitchen" instance=ExtResource("8_xy5hl")]
+transform = Transform3D(0.707107, 0.683013, 0.183013, -3.8567e-09, 0.258819, -0.965926, -0.707107, 0.683013, 0.183013, 0.417628, 0.951491, -0.8953)
+
+[node name="plate_021" parent="BG/Kitchen" instance=ExtResource("10_dmie1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.25935, 0.93017, -0.289349)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="BG/Kitchen"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00143242, 2.43686, -0.0158164)
+light_color = Color(1, 0.929412, 0.843137, 1)
+shadow_bias = 1.0
+shadow_normal_bias = 0.5
+shadow_blur = 2.0
+omni_range = 10.0
+
+[node name="knife_chef_knife" parent="BG/Kitchen" instance=ExtResource("9_tohq3")]
+transform = Transform3D(0.707107, 0.707107, 3.09086e-08, 0, -4.37114e-08, 1, 0.707107, -0.707107, -3.09086e-08, -0.00573623, 1.06623, -0.560349)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="BG/Kitchen"]
+environment = SubResource("Environment_owudn")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="BG"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SubViewport" type="SubViewport" parent="BG/SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(1280, 720)
+render_target_update_mode = 4
+
+[node name="Camera3D" type="Camera3D" parent="BG/SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 1.43602, 2.34872, 2)
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_djxi4")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 60
+theme_override_constants/margin_top = 80
+theme_override_constants/margin_right = 60
+theme_override_constants/margin_bottom = 80
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 25
+
+[node name="Label" type="Label" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "Bigger Fish to Fry
+"
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 180)
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer/VBoxContainer/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/separation = 35
+
+[node name="Start" type="Button" parent="Control/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Start Game"
+
+[node name="Settings" type="Button" parent="Control/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Settings"
+
+[node name="Quit" type="Button" parent="Control/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Quit
+"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_x51gw")
+}
+autoplay = "camera_animate"
+speed_scale = 0.5
+
+[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
