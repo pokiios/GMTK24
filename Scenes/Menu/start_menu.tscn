@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://d20u4i7oay67c"]
+[gd_scene load_steps=17 format=3 uid="uid://d20u4i7oay67c"]
 
 [ext_resource type="Theme" uid="uid://bqdph7nqf8vne" path="res://UI/Theme/UI_Start_menu.tres" id="1_djxi4"]
 [ext_resource type="Script" path="res://Scripts/Utility/StartMenu.gd" id="1_iod2y"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://cp3q0x1fupqrn" path="res://Assets/Models/Food/salmon.glb" id="8_xy5hl"]
 [ext_resource type="PackedScene" uid="uid://biq5laqidbn6i" path="res://Assets/Models/Knife/knife_chef_knife.fbx" id="9_tohq3"]
 [ext_resource type="PackedScene" uid="uid://bl3ypgreyvrue" path="res://Assets/Models/Plate/plate_021.fbx" id="10_dmie1"]
+[ext_resource type="Texture2D" uid="uid://cpwusn03m5jc" path="res://UI/Images/Logo.png" id="12_g5nqu"]
 
 [sub_resource type="Environment" id="Environment_owudn"]
 background_color = Color(1, 1, 1, 1)
@@ -113,6 +114,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="BG/SubViewportContainer"]
 handle_input_locally = false
@@ -132,7 +134,6 @@ grow_vertical = 2
 theme = ExtResource("1_djxi4")
 
 [node name="MarginContainer" type="MarginContainer" parent="Control"]
-custom_minimum_size = Vector2(0, 80)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -140,23 +141,25 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 60
-theme_override_constants/margin_top = 80
+theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 60
-theme_override_constants/margin_bottom = 80
+theme_override_constants/margin_bottom = 10
+metadata/_edit_use_anchors_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer"]
 layout_mode = 2
+size_flags_horizontal = 0
 theme_override_constants/separation = 25
 
-[node name="Label" type="Label" parent="Control/MarginContainer/VBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="Control/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(600, 0)
 layout_mode = 2
 size_flags_horizontal = 0
-size_flags_vertical = 0
-text = "Bigger Fish to Fry
-"
+texture = ExtResource("12_g5nqu")
+expand_mode = 5
 
 [node name="MarginContainer" type="MarginContainer" parent="Control/MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 180)
+custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 
 [node name="PanelContainer" type="PanelContainer" parent="Control/MarginContainer/VBoxContainer"]
