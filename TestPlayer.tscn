@@ -1,15 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://dcsskaspr4ih1"]
+[gd_scene load_steps=9 format=3 uid="uid://dcsskaspr4ih1"]
 
 [ext_resource type="PackedScene" uid="uid://bmiacpcm8hs3q" path="res://player.tscn" id="1_044gf"]
-[ext_resource type="PackedScene" uid="uid://b7ixidjwrf1em" path="res://tongs.tscn" id="2_vf2il"]
+[ext_resource type="PackedScene" path="res://tongs.tscn" id="2_vf2il"]
 [ext_resource type="PackedScene" uid="uid://bjj345xkkhs22" path="res://pot.tscn" id="3_g3af2"]
 [ext_resource type="PackedScene" uid="uid://dp4nmgrwgc8s6" path="res://mug.tscn" id="4_m3h3p"]
-[ext_resource type="PackedScene" uid="uid://cc3dukq7jtfdi" path="res://knife.tscn" id="5_yppjm"]
-[ext_resource type="PackedScene" uid="uid://ct4kbra5578jw" path="res://potato.tscn" id="6_a8ep1"]
-[ext_resource type="PackedScene" uid="uid://crkx2lq2d6up1" path="res://potato_chunk.tscn" id="6_jqnku"]
-[ext_resource type="PackedScene" uid="uid://b1mswej1455m4" path="res://salmon.tscn" id="8_ftlps"]
-[ext_resource type="PackedScene" uid="uid://bkgx51otbum20" path="res://Assets/Models/Food/salmonSlice.glb" id="9_dpqg8"]
-[ext_resource type="PackedScene" uid="uid://b6wmlcw3ml4sc" path="res://salmon_slice.tscn" id="9_y7mg3"]
+[ext_resource type="PackedScene" path="res://knife.tscn" id="5_yppjm"]
+[ext_resource type="PackedScene" uid="uid://ct4kbra5578jw" path="res://potato.tscn" id="6_jqnku"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_owmqd"]
 size = Vector3(20, 1, 20)
@@ -76,13 +72,6 @@ shadow_enabled = true
 spot_range = 11.041
 spot_angle = 40.71
 
-[node name="Potato" parent="." instance=ExtResource("6_a8ep1")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -3.80417, -0.226379, -0.300094)
-chunk_scene = ExtResource("6_jqnku")
-
-[node name="salmon" parent="." instance=ExtResource("8_ftlps")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.35402, -0.6339, -0.879368)
-chunk_scene = ExtResource("9_y7mg3")
-
-[node name="salmonSlice" parent="." instance=ExtResource("9_dpqg8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.84191, -0.6339, 0.223823)
+[node name="Potato" parent="." instance=ExtResource("6_jqnku")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3943, 0, 0)
+chunk_scene = ExtResource("4_m3h3p")

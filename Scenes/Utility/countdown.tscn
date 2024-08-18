@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://ddbt6bf8nvwg3"]
+
+[ext_resource type="Script" path="res://Scripts/Utility/Countdown.gd" id="1_47x5g"]
+
+[node name="Countdown" type="Node"]
+script = ExtResource("1_47x5g")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 300.0
