@@ -1,17 +1,17 @@
 [gd_scene load_steps=18 format=3 uid="uid://dfy7ovshrvij2"]
 
-[ext_resource type="PackedScene" uid="uid://jhhbujami2bv" path="res://Scenes/Kitchen.tscn" id="1_71cad"]
-[ext_resource type="Script" path="res://Scripts/Utility/SettingsMenu.gd" id="1_qmp02"]
-[ext_resource type="PackedScene" uid="uid://dtu2clh6dk0ct" path="res://Assets/Models/Fridge/Fridge B.fbx" id="2_ed1cd"]
-[ext_resource type="PackedScene" uid="uid://cfjxupaip2c2h" path="res://Assets/Models/Oven/Oven.fbx" id="3_yc6ua"]
-[ext_resource type="PackedScene" uid="uid://b8kc0am6h06c1" path="res://Assets/Models/Cupboard Sink/Cupboard Sink.fbx" id="4_6djp8"]
-[ext_resource type="PackedScene" uid="uid://b0j84dh1ltjq7" path="res://Assets/Models/MISC/Mug.fbx" id="5_8wm5k"]
-[ext_resource type="PackedScene" uid="uid://fji5qm6md8xd" path="res://Assets/Models/Cutting Board/board_cutting_board_002.fbx" id="6_elyrt"]
-[ext_resource type="PackedScene" uid="uid://cp3q0x1fupqrn" path="res://Assets/Models/Food/salmon.glb" id="7_xqvbr"]
-[ext_resource type="PackedScene" uid="uid://bl3ypgreyvrue" path="res://Assets/Models/Plate/plate_021.fbx" id="8_rwpsu"]
-[ext_resource type="PackedScene" uid="uid://biq5laqidbn6i" path="res://Assets/Models/Knife/knife_chef_knife.fbx" id="9_w1y5i"]
-[ext_resource type="Theme" uid="uid://bqdph7nqf8vne" path="res://UI/Theme/UI_Start_menu.tres" id="10_jmp3q"]
-[ext_resource type="Script" path="res://Scripts/Utility/VolumeSlider.gd" id="12_vh8b2"]
+[ext_resource type="Script" path="res://Scripts/Utility/SettingsMenu.gd" id="1_ejrkm"]
+[ext_resource type="PackedScene" uid="uid://jhhbujami2bv" path="res://Scenes/Kitchen.tscn" id="2_1gh6y"]
+[ext_resource type="PackedScene" uid="uid://dtu2clh6dk0ct" path="res://Assets/Models/Fridge/Fridge B.fbx" id="3_iedvk"]
+[ext_resource type="PackedScene" uid="uid://cfjxupaip2c2h" path="res://Assets/Models/Oven/Oven.fbx" id="4_vgbnu"]
+[ext_resource type="PackedScene" uid="uid://b8kc0am6h06c1" path="res://Assets/Models/Cupboard Sink/Cupboard Sink.fbx" id="5_jgywq"]
+[ext_resource type="PackedScene" uid="uid://b0j84dh1ltjq7" path="res://Assets/Models/MISC/Mug.fbx" id="6_d68q4"]
+[ext_resource type="PackedScene" uid="uid://fji5qm6md8xd" path="res://Assets/Models/Cutting Board/board_cutting_board_002.fbx" id="7_am4am"]
+[ext_resource type="PackedScene" uid="uid://cp3q0x1fupqrn" path="res://Assets/Models/Food/salmon.glb" id="8_hccex"]
+[ext_resource type="PackedScene" uid="uid://bl3ypgreyvrue" path="res://Assets/Models/Plate/plate_021.fbx" id="9_xd4tu"]
+[ext_resource type="PackedScene" uid="uid://biq5laqidbn6i" path="res://Assets/Models/Knife/knife_chef_knife.fbx" id="10_ukw1g"]
+[ext_resource type="Theme" uid="uid://bqdph7nqf8vne" path="res://UI/Theme/UI_Start_menu.tres" id="11_ayq2e"]
+[ext_resource type="Script" path="res://Scripts/Utility/VolumeSlider.gd" id="12_hew0v"]
 
 [sub_resource type="Environment" id="Environment_8fcqt"]
 background_color = Color(1, 1, 1, 1)
@@ -70,31 +70,31 @@ _data = {
 bg_color = Color(0, 0, 0, 0.596078)
 
 [node name="Settings" type="CanvasLayer"]
-script = ExtResource("1_qmp02")
+script = ExtResource("1_ejrkm")
 
 [node name="BG" type="Node3D" parent="."]
 
-[node name="Kitchen" parent="BG" instance=ExtResource("1_71cad")]
+[node name="Kitchen" parent="BG" instance=ExtResource("2_1gh6y")]
 
-[node name="Fridge B" parent="BG/Kitchen" instance=ExtResource("2_ed1cd")]
+[node name="Fridge B" parent="BG/Kitchen" instance=ExtResource("3_iedvk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.56894, 1.12877, -1.97303)
 
-[node name="Oven" parent="BG/Kitchen" instance=ExtResource("3_yc6ua")]
+[node name="Oven" parent="BG/Kitchen" instance=ExtResource("4_vgbnu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.24003, 0.747896, -2.07513)
 
-[node name="Cupboard Sink" parent="BG/Kitchen" instance=ExtResource("4_6djp8")]
+[node name="Cupboard Sink" parent="BG/Kitchen" instance=ExtResource("5_jgywq")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.20038, 0.844892, -0.898191)
 
-[node name="Mug" parent="BG/Kitchen" instance=ExtResource("5_8wm5k")]
+[node name="Mug" parent="BG/Kitchen" instance=ExtResource("6_d68q4")]
 transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, -0.72287, 0.956418, 0)
 
-[node name="board_cutting_board_002" parent="BG/Kitchen" instance=ExtResource("6_elyrt")]
+[node name="board_cutting_board_002" parent="BG/Kitchen" instance=ExtResource("7_am4am")]
 transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 0.494428, 0.92021, -0.782595)
 
-[node name="salmon" parent="BG/Kitchen" instance=ExtResource("7_xqvbr")]
+[node name="salmon" parent="BG/Kitchen" instance=ExtResource("8_hccex")]
 transform = Transform3D(0.707107, 0.683013, 0.183013, -3.8567e-09, 0.258819, -0.965926, -0.707107, 0.683013, 0.183013, 0.417628, 0.951491, -0.8953)
 
-[node name="plate_021" parent="BG/Kitchen" instance=ExtResource("8_rwpsu")]
+[node name="plate_021" parent="BG/Kitchen" instance=ExtResource("9_xd4tu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.25935, 0.93017, -0.289349)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="BG/Kitchen"]
@@ -105,7 +105,7 @@ shadow_normal_bias = 0.5
 shadow_blur = 2.0
 omni_range = 10.0
 
-[node name="knife_chef_knife" parent="BG/Kitchen" instance=ExtResource("9_w1y5i")]
+[node name="knife_chef_knife" parent="BG/Kitchen" instance=ExtResource("10_ukw1g")]
 transform = Transform3D(0.707107, 0.707107, 3.09086e-08, 0, -4.37114e-08, 1, 0.707107, -0.707107, -3.09086e-08, -0.00573623, 1.06623, -0.560349)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="BG/Kitchen"]
@@ -141,7 +141,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("10_jmp3q")
+theme = ExtResource("11_ayq2e")
 
 [node name="MarginContainer" type="MarginContainer" parent="Control"]
 layout_mode = 1
@@ -191,7 +191,7 @@ layout_mode = 2
 size_flags_vertical = 4
 max_value = 1.0
 step = 0.001
-script = ExtResource("12_vh8b2")
+script = ExtResource("12_hew0v")
 bus_name = "Master"
 
 [node name="MarginContainer3" type="MarginContainer" parent="Control/MarginContainer/VBoxContainer2/VBoxContainer"]
@@ -211,7 +211,7 @@ layout_mode = 2
 size_flags_vertical = 4
 max_value = 1.0
 step = 0.001
-script = ExtResource("12_vh8b2")
+script = ExtResource("12_hew0v")
 bus_name = "Music"
 
 [node name="MarginContainer4" type="MarginContainer" parent="Control/MarginContainer/VBoxContainer2/VBoxContainer"]
@@ -231,7 +231,7 @@ size_flags_vertical = 4
 max_value = 1.0
 step = 0.001
 scrollable = false
-script = ExtResource("12_vh8b2")
+script = ExtResource("12_hew0v")
 bus_name = "SFX"
 
 [node name="MarginContainer2" type="MarginContainer" parent="Control/MarginContainer/VBoxContainer2/VBoxContainer"]
@@ -249,3 +249,5 @@ bus = &"Music"
 
 [node name="SFX" type="AudioStreamPlayer3D" parent="."]
 bus = &"SFX"
+
+[connection signal="pressed" from="Control/MarginContainer/VBoxContainer2/VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]

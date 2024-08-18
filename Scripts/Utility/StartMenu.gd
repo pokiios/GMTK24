@@ -5,7 +5,7 @@ extends CanvasLayer
 
 func _ready() -> void:
 	game_scene = load("res://Scenes/main_world.tscn")
-	settings_scene = load("res://Scenes/Settings.tscn")
+	settings_scene = load("res://Scenes/Menu/Settings.tscn")
 
 func _on_start_pressed() -> void:
 	get_tree().change_scene_to_packed(game_scene)

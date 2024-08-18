@@ -12,9 +12,12 @@ grow_horizontal = 2
 script = ExtResource("1_47x5g")
 
 [node name="Label" type="Label" parent="."]
+layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 theme = ExtResource("2_7o11w")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 300.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

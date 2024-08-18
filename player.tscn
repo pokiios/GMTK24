@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bmiacpcm8hs3q"]
+[gd_scene load_steps=6 format=3 uid="uid://bmiacpcm8hs3q"]
 
 [ext_resource type="Script" path="res://character_body_3d.gd" id="1_whoe0"]
 [ext_resource type="Script" path="res://player_camera.gd" id="2_5fktn"]
+[ext_resource type="Texture2D" uid="uid://b02on8bgp7ylw" path="res://UI/Images/crosshair.png" id="3_f2718"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4y1b2"]
 size = Vector3(1, 0.5, 1)
@@ -25,30 +26,51 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.566734, 0)
 current = true
 script = ExtResource("2_5fktn")
 
-[node name="MarginContainer" type="MarginContainer" parent="Pivot/PlayerCamera"]
-offset_right = 200.0
-offset_bottom = 100.0
+[node name="Hands" type="Node3D" parent="Pivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, -0.06, -1.838)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_right = 0.156
+anchor_bottom = 0.139
+offset_right = 0.319992
+offset_bottom = -0.0800095
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Pivot/PlayerCamera/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 11
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Pivot/PlayerCamera/MarginContainer/VBoxContainer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 28
 text = "Throw Power"
 fit_content = true
 
-[node name="ProgressBar" type="ProgressBar" parent="Pivot/PlayerCamera/MarginContainer/VBoxContainer"]
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 max_value = 10.0
 step = 0.1
 show_percentage = false
 
-[node name="Hands" type="Node3D" parent="Pivot"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, -0.06, -1.838)
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_f2718")
