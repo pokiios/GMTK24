@@ -57,7 +57,7 @@ size = Vector3(0.1, 0.5, 0.05)
 script = ExtResource("1_jjjm4")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1.91069e-15, -4.37114e-08, 1, -1, -4.37114e-08, 0, 4.37114e-08, -1, -4.37114e-08, 0, 0, 0)
+transform = Transform3D(5.73207e-16, -1.31134e-08, 0.3, -0.3, -1.31134e-08, 1.07997e-21, 1.31134e-08, -0.3, -1.31134e-08, 0, 0, 0)
 shape = SubResource("BoxShape3D_kctpo")
 
 [node name="knife chef knife" type="MeshInstance3D" parent="CollisionShape3D"]
@@ -66,7 +66,7 @@ mesh = SubResource("ArrayMesh_0mfpp")
 skeleton = NodePath("")
 
 [node name="Area3D" type="Area3D" parent="."]
-transform = Transform3D(1.91069e-15, -4.37114e-08, 1, -1, -4.37114e-08, 0, 4.37114e-08, -1, -4.37114e-08, 0, 0, 0)
+transform = Transform3D(5.73207e-16, -1.31134e-08, 0.3, -0.3, -1.31134e-08, 1.07997e-21, 1.31134e-08, -0.3, -1.31134e-08, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0460645, 0.603818, 1.66037e-08)

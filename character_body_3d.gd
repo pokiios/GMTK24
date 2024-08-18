@@ -9,6 +9,8 @@ const RAY_LENGTH = 1000
 var mouse_sensitivity = 0.002  # radians/pixel
 var throw_power = 0
 var mouse_right_down: bool = false
+var just_jumped : bool = false
+var jump_timer : Timer
 
 
 @onready var camera = $Pivot/PlayerCamera
@@ -17,6 +19,9 @@ var carry_col
 
 func _init():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	jump_timer = Timer.new()
+	add_child(jump_timer)
+	jump_timer.timeout.connect(_on_jump_timeout)
 
 func _physics_process(delta):
 	
@@ -31,8 +36,10 @@ func _physics_process(delta):
 		clamp(throw_power,0,10)
 	$Pivot/PlayerCamera/MarginContainer/VBoxContainer/ProgressBar.set_value(throw_power)
 	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
+		jump_timer.start(1.0)
+		just_jumped = true
 		
 	var input_dir = Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
 	
@@ -104,7 +111,6 @@ func _physics_process(delta):
 		carrying.position = $Pivot/Hands.global_position
 		carrying.rotation = $Pivot/Hands.global_rotation
 
-	
 
 func _unhandled_input(event):
 	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
@@ -117,4 +123,6 @@ func _unhandled_input(event):
 			mouse_right_down = true
 		elif event.button_index == 2 and event.is_released():
 			mouse_right_down = false
-			
+
+func _on_jump_timeout():
+	just_jumped = false

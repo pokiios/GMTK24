@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=4 uid="uid://b1mswej1455m4"]
+[gd_scene load_steps=8 format=4 uid="uid://b1mswej1455m4"]
 
+[ext_resource type="PackedScene" uid="uid://b6wmlcw3ml4sc" path="res://salmon_slice.tscn" id="2_6c5xh"]
 [ext_resource type="Script" path="res://salmon.gd" id="2_7y2yy"]
 [ext_resource type="Material" uid="uid://d2sac0o84lqtd" path="res://addons/pixpal_tools/Imphenzia/PixPal/Materials/M_ImphenziaPixPal.tres" id="2_y7ymu"]
 
@@ -45,6 +46,7 @@ data = PackedVector3Array(0.11696, 0.127516, 0.0674894, 0.255072, 0.138931, 0.03
 
 [node name="salmon2" type="RigidBody3D" groups=["grabable"]]
 script = ExtResource("2_7y2yy")
+chunk_scene = ExtResource("2_6c5xh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("ConcavePolygonShape3D_eea7b")

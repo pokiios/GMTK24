@@ -1,4 +1,5 @@
 extends Node3D
+class_name Oven
 
 var is_next_to_handle : bool = false
 var is_next_to_knob : bool =  false
