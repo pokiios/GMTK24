@@ -70,6 +70,7 @@ mesh = SubResource("ArrayMesh_2h2r7")
 skeleton = NodePath("")
 
 [node name="Water" type="MeshInstance3D" parent="CollisionShape3D"]
+visible = false
 mesh = SubResource("CylinderMesh_6u7bg")
 
 [node name="Area3D" type="Area3D" parent="."]

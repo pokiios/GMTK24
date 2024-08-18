@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bd2adlwc8o2xe"]
+[gd_scene load_steps=14 format=3 uid="uid://bd2adlwc8o2xe"]
 
 [ext_resource type="PackedScene" uid="uid://jhhbujami2bv" path="res://Scenes/Kitchen.tscn" id="1_c8006"]
 [ext_resource type="PackedScene" uid="uid://c01jgf84mkxs2" path="res://Scenes/Interactables/sink.tscn" id="3_o6p3j"]
@@ -6,6 +6,12 @@
 [ext_resource type="PackedScene" uid="uid://c6ukelnk3v1em" path="res://Scenes/Interactables/fridge.tscn" id="4_lck2t"]
 [ext_resource type="PackedScene" uid="uid://bwy6ncrdrku2g" path="res://Scenes/Interactables/kitchen_roll.tscn" id="5_1sota"]
 [ext_resource type="PackedScene" uid="uid://bmiacpcm8hs3q" path="res://player.tscn" id="5_id05n"]
+[ext_resource type="PackedScene" uid="uid://bjj345xkkhs22" path="res://pot.tscn" id="7_75o6o"]
+[ext_resource type="PackedScene" uid="uid://ct4kbra5578jw" path="res://potato.tscn" id="8_0u0xh"]
+[ext_resource type="PackedScene" uid="uid://b1mswej1455m4" path="res://salmon.tscn" id="9_o2mrm"]
+[ext_resource type="PackedScene" uid="uid://cc3dukq7jtfdi" path="res://knife.tscn" id="10_bnxs7"]
+[ext_resource type="PackedScene" uid="uid://b7ixidjwrf1em" path="res://tongs.tscn" id="11_5y6ra"]
+[ext_resource type="PackedScene" uid="uid://dp4nmgrwgc8s6" path="res://mug.tscn" id="12_pnwjp"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_doliq"]
 size = Vector3(2.66064, 3.8479, 0.490112)
@@ -35,6 +41,8 @@ transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 
 
 [node name="Player" parent="." instance=ExtResource("5_id05n")]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 1.08256, 0)
+SPEED = 1.0
+JUMP_VELOCITY = 2.5
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00143242, 2.43686, -0.0158164)
@@ -43,3 +51,33 @@ shadow_bias = 0.7
 shadow_normal_bias = 6.848
 shadow_blur = 2.0
 omni_attenuation = 0.5
+
+[node name="Pot" parent="." instance=ExtResource("7_75o6o")]
+transform = Transform3D(-0.943066, 0, -0.332606, 0, 1, 0, 0.332606, 0, -0.943066, -0.051679, 0.982406, -2.05298)
+
+[node name="Potato" parent="." instance=ExtResource("8_0u0xh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.567495, 0.98275, -0.789206)
+
+[node name="Potato2" parent="." instance=ExtResource("8_0u0xh")]
+transform = Transform3D(0.507313, 0, -0.861762, 0, 1, 0, 0.861762, 0, 0.507313, 0.288921, 1.00241, -0.679299)
+
+[node name="salmon2" parent="." instance=ExtResource("9_o2mrm")]
+transform = Transform3D(0.999471, -0.000489649, -0.0325061, 0.0325098, 0.0150536, 0.999358, 0, -0.999887, 0.0150616, -0.389349, 1.02215, -0.134601)
+
+[node name="Knife" parent="." instance=ExtResource("10_bnxs7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0685709, 0.982082, -0.184813)
+
+[node name="cutensils_tongs_closed" parent="." instance=ExtResource("11_5y6ra")]
+transform = Transform3D(0.247694, -0.033877, 0, 0.033877, 0.247694, 0, 0, 0, 0.25, -2.18573, 0.935093, -0.290797)
+
+[node name="cutensils_tongs_closed2" parent="." instance=ExtResource("11_5y6ra")]
+transform = Transform3D(0.00271483, -0.000371307, 0.249985, 0.033877, 0.247694, 0, -0.247679, 0.033875, 0.00274011, -0.723448, 0.935093, -0.801971)
+
+[node name="cutensils_tongs_closed3" parent="." instance=ExtResource("11_5y6ra")]
+transform = Transform3D(-0.247795, 0.0265813, 0.0197761, 0.02671, 0.248568, 0.000573124, -0.0196019, 0.00268095, -0.249216, 1.35493, 0.0264688, -0.52933)
+
+[node name="cutensils_tongs_closed4" parent="." instance=ExtResource("11_5y6ra")]
+transform = Transform3D(-0.163209, 0.022322, 0.188055, 0.033877, 0.247694, 3.41726e-10, -0.18632, 0.0254829, -0.164728, 2.22242, 0.0260714, -1.61166)
+
+[node name="Mug" parent="." instance=ExtResource("12_pnwjp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.16878, 0.977968, -1.46018)

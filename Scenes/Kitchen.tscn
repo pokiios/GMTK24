@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://jhhbujami2bv"]
+[gd_scene load_steps=26 format=3 uid="uid://jhhbujami2bv"]
 
 [ext_resource type="PackedScene" uid="uid://1m6n6284wfwn" path="res://Assets/Models/Cupboards/Cupboard F.fbx" id="1_wl45t"]
 [ext_resource type="PackedScene" uid="uid://b5x1qa5dc6hda" path="res://Assets/Models/MISC/Socket.fbx" id="3_evkav"]
@@ -13,6 +13,9 @@
 [ext_resource type="PackedScene" uid="uid://btkgju7dyjqhs" path="res://Assets/Models/Ceiling Light/Ceiling Light.fbx" id="14_2f8nh"]
 [ext_resource type="PackedScene" uid="uid://dc3s56kgovwgk" path="res://Assets/Models/MISC/Bin.fbx" id="14_54ki6"]
 [ext_resource type="PackedScene" uid="uid://dgjx0lcosrxb" path="res://Assets/Models/Toaster/Toaster.fbx" id="16_i0kou"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_b2ftk"]
+size = Vector3(1.75, 0.2, 1.25)
 
 [sub_resource type="QuadMesh" id="QuadMesh_uv802"]
 size = Vector2(5, 3)
@@ -60,6 +63,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.01, 0)
 
 [node name="Cupboard F2" parent="Island" instance=ExtResource("1_wl45t")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.47, -0.01, -1.06431)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Island"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Island/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.24049, 0.156268, -0.539095)
+shape = SubResource("BoxShape3D_b2ftk")
 
 [node name="Walls" type="Node3D" parent="."]
 
