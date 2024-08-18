@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://bd2adlwc8o2xe"]
+[gd_scene load_steps=16 format=3 uid="uid://bd2adlwc8o2xe"]
 
 [ext_resource type="PackedScene" uid="uid://jhhbujami2bv" path="res://Scenes/Kitchen.tscn" id="1_c8006"]
+[ext_resource type="Script" path="res://Scenes/main_world.gd" id="1_op4ke"]
 [ext_resource type="PackedScene" uid="uid://c01jgf84mkxs2" path="res://Scenes/Interactables/sink.tscn" id="3_o6p3j"]
 [ext_resource type="PackedScene" uid="uid://cnxwvs2qw0lf7" path="res://Scenes/Interactables/oven.tscn" id="4_86qqo"]
 [ext_resource type="PackedScene" uid="uid://c6ukelnk3v1em" path="res://Scenes/Interactables/fridge.tscn" id="4_lck2t"]
@@ -8,6 +9,10 @@
 [ext_resource type="PackedScene" uid="uid://bmiacpcm8hs3q" path="res://player.tscn" id="5_id05n"]
 [ext_resource type="PackedScene" uid="uid://bjj345xkkhs22" path="res://pot.tscn" id="6_xesm6"]
 [ext_resource type="PackedScene" uid="uid://ddbt6bf8nvwg3" path="res://Scenes/Utility/countdown.tscn" id="7_ltseb"]
+[ext_resource type="PackedScene" uid="uid://fji5qm6md8xd" path="res://Assets/Models/Cutting Board/board_cutting_board_002.fbx" id="10_p7ujf"]
+[ext_resource type="PackedScene" uid="uid://cc3dukq7jtfdi" path="res://knife.tscn" id="11_mk1kx"]
+[ext_resource type="PackedScene" uid="uid://ct4kbra5578jw" path="res://potato.tscn" id="12_h2rva"]
+[ext_resource type="PackedScene" uid="uid://b1mswej1455m4" path="res://salmon.tscn" id="13_oligi"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_doliq"]
 size = Vector3(2.66064, 3.8479, 0.490112)
@@ -28,6 +33,7 @@ adjustment_enabled = true
 adjustment_saturation = 2.0
 
 [node name="MainWorld" type="Node3D"]
+script = ExtResource("1_op4ke")
 
 [node name="Kitchen" parent="." instance=ExtResource("1_c8006")]
 
@@ -72,3 +78,18 @@ omni_attenuation = 0.5
 [node name="Countdown" parent="CanvasLayer" instance=ExtResource("7_ltseb")]
 offset_top = 20.0
 offset_bottom = 20.0
+
+[node name="board_cutting_board_002" parent="." instance=ExtResource("10_p7ujf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.43455, 0.903806, -0.788935)
+
+[node name="Knife" parent="." instance=ExtResource("11_mk1kx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.587158, 0.95889, -0.654275)
+
+[node name="Potato" parent="." instance=ExtResource("12_h2rva")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.869487, 1.01784, -2.30741)
+
+[node name="Potato2" parent="." instance=ExtResource("12_h2rva")]
+transform = Transform3D(0.765045, 0, -0.643977, 0, 1, 0, 0.643977, 0, 0.765045, 0.599934, 0.915766, -2.214)
+
+[node name="salmon2" parent="." instance=ExtResource("13_oligi")]
+transform = Transform3D(0.596586, 0.358985, -0.0722144, 0, 0.138049, 0.686253, 0.366176, -0.58487, 0.117654, 1.49238, 1.05361, -2.10805)

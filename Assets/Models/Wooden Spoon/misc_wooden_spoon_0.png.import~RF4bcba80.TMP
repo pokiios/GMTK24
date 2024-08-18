@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dfyt6r8t1tkay"
-path.s3tc="res://.godot/imported/cutensils_spatula_0.png-05304ae53b0dcad1c1a7bb9bae05992c.s3tc.ctex"
+uid="uid://copxapp20w2qu"
+path.s3tc="res://.godot/imported/misc_wooden_spoon_0.png-a0f4c74903fc89abb07a208d7565149b.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "cfdf22194a924e5900332229e0b857bb"
+}
 
 [deps]
 
-source_file="res://Assets/Models/Spatula/cutensils_spatula_0.png"
-dest_files=["res://.godot/imported/cutensils_spatula_0.png-05304ae53b0dcad1c1a7bb9bae05992c.s3tc.ctex"]
+source_file="res://Assets/Models/Wooden Spoon/misc_wooden_spoon_0.png"
+dest_files=["res://.godot/imported/misc_wooden_spoon_0.png-a0f4c74903fc89abb07a208d7565149b.s3tc.ctex"]
 
 [params]
 
