@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bd2adlwc8o2xe"]
+[gd_scene load_steps=10 format=3 uid="uid://bd2adlwc8o2xe"]
 
 [ext_resource type="PackedScene" uid="uid://jhhbujami2bv" path="res://Scenes/Kitchen.tscn" id="1_c8006"]
 [ext_resource type="PackedScene" uid="uid://c01jgf84mkxs2" path="res://Scenes/Interactables/sink.tscn" id="3_o6p3j"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c6ukelnk3v1em" path="res://Scenes/Interactables/fridge.tscn" id="4_lck2t"]
 [ext_resource type="PackedScene" uid="uid://bwy6ncrdrku2g" path="res://Scenes/Interactables/kitchen_roll.tscn" id="5_1sota"]
 [ext_resource type="PackedScene" uid="uid://bmiacpcm8hs3q" path="res://player.tscn" id="5_id05n"]
+[ext_resource type="PackedScene" uid="uid://ddbt6bf8nvwg3" path="res://Scenes/Utility/countdown.tscn" id="7_ltseb"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_doliq"]
 size = Vector3(2.66064, 3.8479, 0.490112)
@@ -61,3 +62,9 @@ shadow_bias = 0.7
 shadow_normal_bias = 6.848
 shadow_blur = 2.0
 omni_attenuation = 0.5
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Countdown" parent="CanvasLayer" instance=ExtResource("7_ltseb")]
+offset_top = 20.0
+offset_bottom = 20.0

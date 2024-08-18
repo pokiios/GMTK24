@@ -3,7 +3,12 @@
 [ext_resource type="Script" path="res://Scripts/Utility/Countdown.gd" id="1_47x5g"]
 [ext_resource type="Theme" uid="uid://dm63onoxy1vv1" path="res://UI/Theme/UI_theme.tres" id="2_7o11w"]
 
-[node name="Countdown" type="Node"]
+[node name="Countdown" type="Control"]
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+grow_horizontal = 2
 script = ExtResource("1_47x5g")
 
 [node name="Label" type="Label" parent="."]
