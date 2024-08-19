@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://dp4nmgrwgc8s6"]
+[gd_scene load_steps=9 format=4 uid="uid://dp4nmgrwgc8s6"]
 
 [ext_resource type="Script" path="res://mug.gd" id="2_quptt"]
 [ext_resource type="Material" uid="uid://bcye12ji8fbb3" path="res://simple_water.tres" id="2_ujdeo"]
@@ -55,10 +55,8 @@ height = 0.08
 [sub_resource type="SphereShape3D" id="SphereShape3D_tfhk4"]
 radius = 0.1
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_r35hc"]
-size = Vector3(0.05, 0.06, 0.02)
-
 [node name="Mug" type="RigidBody3D" groups=["grabable"]]
+mass = 0.3
 script = ExtResource("2_quptt")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -70,6 +68,7 @@ mesh = SubResource("ArrayMesh_2h2r7")
 skeleton = NodePath("")
 
 [node name="Water" type="MeshInstance3D" parent="CollisionShape3D"]
+visible = false
 mesh = SubResource("CylinderMesh_6u7bg")
 
 [node name="Area3D" type="Area3D" parent="."]
@@ -77,11 +76,6 @@ mesh = SubResource("CylinderMesh_6u7bg")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.015, 0, 0)
 shape = SubResource("SphereShape3D_tfhk4")
-disabled = true
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0602167, 0, 0)
-shape = SubResource("BoxShape3D_r35hc")
 disabled = true
 
 [connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]

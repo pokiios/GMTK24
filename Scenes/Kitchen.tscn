@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://jhhbujami2bv"]
+[gd_scene load_steps=30 format=3 uid="uid://jhhbujami2bv"]
 
 [ext_resource type="PackedScene" uid="uid://1m6n6284wfwn" path="res://Assets/Models/Cupboards/Cupboard F.fbx" id="1_wl45t"]
 [ext_resource type="PackedScene" uid="uid://b5x1qa5dc6hda" path="res://Assets/Models/MISC/Socket.fbx" id="3_evkav"]
@@ -13,6 +13,9 @@
 [ext_resource type="PackedScene" uid="uid://btkgju7dyjqhs" path="res://Assets/Models/Ceiling Light/Ceiling Light.fbx" id="14_2f8nh"]
 [ext_resource type="PackedScene" uid="uid://dc3s56kgovwgk" path="res://Assets/Models/MISC/Bin.fbx" id="14_54ki6"]
 [ext_resource type="PackedScene" uid="uid://dgjx0lcosrxb" path="res://Assets/Models/Toaster/Toaster.fbx" id="16_i0kou"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_h6ol7"]
+size = Vector3(1.76636, 0.055542, 1.2478)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ckl8g"]
 shading_mode = 2
@@ -57,6 +60,15 @@ points = PackedVector3Array(1.75, 1.5, 0, 1.75, -1.5, 0, -1.75, 1.5, 0, -1.75, -
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_0iy65"]
 points = PackedVector3Array(-2.5, 0, -2.5, -2.5, 0, 2.5, 2.5, 0, -2.5, 2.5, 0, 2.5)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_lmret"]
+size = Vector3(3.59973, 0.0289917, 0.713928)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jjc32"]
+size = Vector3(0.745605, 0.0505371, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3pllp"]
+size = Vector3(1.00867, 0.0258789, 0.559204)
+
 [node name="Kitchen" type="Node3D"]
 
 [node name="Island" type="Node3D" parent="."]
@@ -67,6 +79,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.01, 0)
 
 [node name="Cupboard F2" parent="Island" instance=ExtResource("1_wl45t")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.47, -0.01, -1.06431)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Island"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Island/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.233521, 0.230042, -0.534058)
+shape = SubResource("BoxShape3D_h6ol7")
 
 [node name="Walls" type="Node3D" parent="."]
 
@@ -174,6 +192,20 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.997
 
 [node name="Cupboard E" parent="Counter" instance=ExtResource("12_udepq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.657, 0.58796, -1.954)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Counter"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Counter/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.748962, 0.900795, -2.23275)
+shape = SubResource("BoxShape3D_lmret")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Counter/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.23071, 0.886813, -1.87098)
+shape = SubResource("BoxShape3D_jjc32")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Counter/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.37328, 0.889404, -0.192322)
+shape = SubResource("BoxShape3D_3pllp")
 
 [node name="Wall Cupboards" type="Node3D" parent="."]
 

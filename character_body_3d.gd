@@ -9,7 +9,9 @@ const RAY_LENGTH = 1000
 var mouse_sensitivity = 0.002  # radians/pixel
 var throw_power = 0
 var mouse_right_down: bool = false
-var mouse_toggle : bool = true
+var just_jumped : bool = false
+var jump_timer : Timer
+
 
 @onready var camera = $Pivot/PlayerCamera
 var carrying :RigidBody3D = null
@@ -17,12 +19,9 @@ var carry_col
 
 func _init():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-
-func _process(delta: float) -> void:
-	if mouse_toggle:
-		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	if !mouse_toggle:
-		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	jump_timer = Timer.new()
+	add_child(jump_timer)
+	jump_timer.timeout.connect(_on_jump_timeout)
 
 func _physics_process(delta):
 	
@@ -33,12 +32,14 @@ func _physics_process(delta):
 		velocity += get_gravity() * delta
 		
 	if mouse_right_down && carrying:
-		throw_power += 4 * delta
-		clamp(throw_power,0,10)
-	$CanvasLayer/MarginContainer/VBoxContainer/ProgressBar	.set_value(throw_power)
+		throw_power += 1 * delta
+		clamp(throw_power,0,5)
+	$Pivot/PlayerCamera/MarginContainer/VBoxContainer/ProgressBar.set_value(throw_power)
 	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
+		jump_timer.start(1.0)
+		just_jumped = true
 		
 	var input_dir = Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
 	
@@ -56,7 +57,7 @@ func _physics_process(delta):
 		var origin = camera.project_ray_origin(mousepos)
 		var end = origin + camera.project_ray_normal(mousepos) * RAY_LENGTH
 		var query = PhysicsRayQueryParameters3D.create(origin, end)
-		query.collide_with_areas = true
+		query.collide_with_areas = false
 		var result = space_state.intersect_ray(query)
 		
 		var the_node := result['collider'] as Node3D
@@ -81,7 +82,7 @@ func _physics_process(delta):
 	elif Input.is_action_just_released("right_click") && carrying:
 		carrying.freeze = false
 		carry_col.disabled = false
-		carrying.apply_impulse(-throw_power * transform.basis.z)
+		carrying.apply_impulse(Vector3(-throw_power * transform.basis.z.x, 0.1*throw_power, -throw_power * transform.basis.z.z))
 		throw_power = 0
 		
 		for child in carrying.get_children():
@@ -110,7 +111,6 @@ func _physics_process(delta):
 		carrying.position = $Pivot/Hands.global_position
 		carrying.rotation = $Pivot/Hands.global_rotation
 
-	
 
 func _unhandled_input(event):
 	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
@@ -123,6 +123,6 @@ func _unhandled_input(event):
 			mouse_right_down = true
 		elif event.button_index == 2 and event.is_released():
 			mouse_right_down = false
-			
-	if Input.is_action_just_pressed("mouse_toggle"):
-		mouse_toggle = !mouse_toggle
+
+func _on_jump_timeout():
+	just_jumped = false

@@ -38,6 +38,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_s4mm5")
 
 [node name="salmonSlice2" type="RigidBody3D" groups=["grabable"]]
+mass = 0.15
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("ConcavePolygonShape3D_0a3is")

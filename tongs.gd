@@ -15,6 +15,6 @@ func _on_area_3d_body_entered(body):
 	var player := body as Player
 	if player:
 		#if player.velocity.y < 0:
-		player.velocity = Vector3(10*transform.basis.z.x,10,10*transform.basis.z.z)
+		player.velocity = Vector3(6*transform.basis.z.x,6,6*transform.basis.z.z)
 		
 	pass # Replace with function body.

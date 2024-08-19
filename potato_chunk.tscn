@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=4 uid="uid://crkx2lq2d6up1"]
+[gd_scene load_steps=7 format=4 uid="uid://crkx2lq2d6up1"]
 
 [ext_resource type="Script" path="res://potato_chunk.gd" id="1_egdg8"]
 [ext_resource type="Material" uid="uid://d2sac0o84lqtd" path="res://addons/pixpal_tools/Imphenzia/PixPal/Materials/M_ImphenziaPixPal.tres" id="2_p46lq"]
@@ -39,23 +39,29 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_2lj4m")
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_33rat"]
+radius = 0.04
+height = 0.1
+
 [node name="Potato Chunk" type="RigidBody3D" groups=["grabable"]]
+mass = 0.05
 script = ExtResource("1_egdg8")
 
 [node name="Area3D" type="Area3D" parent="."]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="Area3D"]
 transform = Transform3D(0.999994, -0.00015694, -0.00356046, 0.000156939, 1, -5.59032e-07, 0.00356046, 2.54204e-10, 0.999994, 0, 0, 0)
 shape = SubResource("ConcavePolygonShape3D_n8oxv")
 
 [node name="potatoEighth2" type="MeshInstance3D" parent="."]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 mesh = SubResource("ArrayMesh_0d0jm")
 skeleton = NodePath("")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 shape = SubResource("ConcavePolygonShape3D_n8oxv")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.0187182, 0.0475436, 0.0107546)
+shape = SubResource("CapsuleShape3D_33rat")
 
 [connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
