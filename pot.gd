@@ -20,6 +20,7 @@ var pour
 var boiled
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$SteamParticles.emitting = false
 	pour = preload("res://Assets/SFX/water_pour.wav")
 	boiled = preload("res://Assets/SFX/boiling_water.wav")
 	for child in self.get_parent().get_children():
@@ -44,10 +45,12 @@ func _process(delta):
 	if oven:		
 		if oven.stove_is_on && is_full:
 			is_boiling = true
+			$SteamParticles.emitting = true
 			_play_sound("boil")
 			#need steam particles
 		else: 
 			is_boiling = false
+			$SteamParticles.emitting = false
 	
 	if is_boiling && has_food.size() >= 2:
 		is_boiling = false

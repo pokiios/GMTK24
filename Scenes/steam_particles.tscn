@@ -1,0 +1,47 @@
+[gd_scene load_steps=9 format=3 uid="uid://ojrwrgv4ui63"]
+
+[sub_resource type="Gradient" id="Gradient_a6n64"]
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_8yd20"]
+frequency = 0.0026
+offset = Vector3(695.65, 0, 0)
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_vporc"]
+in_3d_space = true
+seamless = true
+color_ramp = SubResource("Gradient_a6n64")
+noise = SubResource("FastNoiseLite_8yd20")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rytgo"]
+transparency = 1
+albedo_texture = SubResource("NoiseTexture2D_vporc")
+billboard_mode = 1
+billboard_keep_scale = true
+
+[sub_resource type="Curve" id="Curve_2q4tb"]
+max_value = 3.0
+_data = [Vector2(0, 0.197802), 0.0, 2.94376, 0, 0, Vector2(0.181159, 0.362638), 0.0, 0.0, 0, 0, Vector2(1, 0), -0.846409, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_awaqn"]
+curve = SubResource("Curve_2q4tb")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3vp4g"]
+emission_shape = 1
+emission_sphere_radius = 1.0
+gravity = Vector3(0, 3, 0)
+scale_over_velocity_curve = SubResource("CurveTexture_awaqn")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_b22u2"]
+size = Vector2(1, 1)
+orientation = 2
+
+[node name="GPUParticles3D" type="GPUParticles3D"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_rytgo")
+transparency = 0.73
+cast_shadow = 0
+amount = 5
+process_material = SubResource("ParticleProcessMaterial_3vp4g")
+draw_pass_1 = SubResource("PlaneMesh_b22u2")
