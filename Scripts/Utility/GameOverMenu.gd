@@ -4,13 +4,12 @@ extends CanvasLayer
 @onready var game_scene
 
 func _ready() -> void:
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	start_menu = preload("res://Scenes/Menu/start_menu.tscn")
-	game_scene = get_tree().reload_current_scene()
-
-
+	game_scene = preload("res://Scenes/main_world.tscn")
 
 func _on_retry_pressed() -> void:
-	game_scene
+	get_tree().change_scene_to_packed(game_scene)
 
 
 func _on_main_menu_pressed() -> void:

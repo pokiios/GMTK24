@@ -6,7 +6,6 @@ extends Node
 
 func _ready() -> void:
 	game_over_scene = preload("res://Scenes/Menu/game_over.tscn")
-	Engine.time_scale = 1
 	timer.start()
 
 func time_left():
@@ -19,5 +18,5 @@ func _process(delta: float) -> void:
 	label.text = "%02d:%02d" % time_left()
 
 func _on_timer_timeout() -> void:
-	Engine.time_scale = 0
+	timer.stop()
 	get_tree().change_scene_to_packed(game_over_scene)

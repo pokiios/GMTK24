@@ -4,6 +4,7 @@ extends CanvasLayer
 @onready var settings_scene
 
 func _ready() -> void:
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	game_scene = load("res://Scenes/main_world.tscn")
 	settings_scene = load("res://Scenes/Menu/Settings.tscn")
 

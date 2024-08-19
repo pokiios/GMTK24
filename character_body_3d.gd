@@ -11,6 +11,7 @@ var throw_power = 0
 var mouse_right_down: bool = false
 var just_jumped : bool = false
 var jump_timer : Timer
+var mouse_toggle : bool = false
 
 
 @onready var camera = $Pivot/PlayerCamera
@@ -22,6 +23,12 @@ func _init():
 	jump_timer = Timer.new()
 	add_child(jump_timer)
 	jump_timer.timeout.connect(_on_jump_timeout)
+
+func _process(delta: float) -> void:
+	if mouse_toggle:
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	elif !mouse_toggle:
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 func _physics_process(delta):
 	
@@ -123,6 +130,8 @@ func _unhandled_input(event):
 			mouse_right_down = true
 		elif event.button_index == 2 and event.is_released():
 			mouse_right_down = false
+	if Input.is_action_just_pressed("mouse_toggle"):
+		mouse_toggle = !mouse_toggle
 
 func _on_jump_timeout():
 	just_jumped = false
