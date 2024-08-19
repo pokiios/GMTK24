@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://cc3dukq7jtfdi" path="res://knife.tscn" id="11_mk1kx"]
 [ext_resource type="PackedScene" uid="uid://ct4kbra5578jw" path="res://potato.tscn" id="12_h2rva"]
 [ext_resource type="PackedScene" uid="uid://b1mswej1455m4" path="res://salmon.tscn" id="13_oligi"]
-[ext_resource type="PackedScene" uid="uid://b7ixidjwrf1em" path="res://tongs.tscn" id="14_3xvbi"]
+[ext_resource type="PackedScene" path="res://tongs.tscn" id="14_3xvbi"]
 [ext_resource type="PackedScene" uid="uid://dp4nmgrwgc8s6" path="res://mug.tscn" id="15_nb1li"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_doliq"]

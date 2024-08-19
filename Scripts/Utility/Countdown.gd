@@ -2,8 +2,10 @@ extends Node
 
 @onready var label = $Label
 @onready var timer = $Timer
+@onready var game_over_scene
 
 func _ready() -> void:
+	game_over_scene = preload("res://Scenes/Menu/game_over.tscn")
 	Engine.time_scale = 1
 	timer.start()
 
@@ -18,4 +20,4 @@ func _process(delta: float) -> void:
 
 func _on_timer_timeout() -> void:
 	Engine.time_scale = 0
-	#We can either put a cutscene here, or just do a game over
+	get_tree().change_scene_to_packed(game_over_scene)

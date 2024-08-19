@@ -34,7 +34,7 @@ func _physics_process(delta):
 	if mouse_right_down && carrying:
 		throw_power += 1 * delta
 		clamp(throw_power,0,5)
-	$Pivot/PlayerCamera/MarginContainer/VBoxContainer/ProgressBar.set_value(throw_power)
+	$CanvasLayer/MarginContainer/VBoxContainer/ProgressBar.set_value(throw_power)
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
