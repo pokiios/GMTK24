@@ -25,6 +25,10 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact"):
 		if player_next_to_tap:
 			tap_is_on = !tap_is_on
+			if tap_is_on:
+				SfxPlayer._play_sound("tap_running")
+			if !tap_is_on:
+				SfxPlayer.stop()
 
 # If in the tap area and it's interacted with, turn tap on
 func _on_tap_area_body_entered(body: Node3D) -> void:

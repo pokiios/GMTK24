@@ -4,11 +4,15 @@ extends CanvasLayer
 @onready var settings_scene
 
 func _ready() -> void:
+	MusicPlayer._play_song("start_menu")
+	MusicPlayer._transition_in()
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	game_scene = load("res://Scenes/main_world.tscn")
 	settings_scene = load("res://Scenes/Menu/Settings.tscn")
 
 func _on_start_pressed() -> void:
+	MusicPlayer._transition_out()
+	await MusicPlayer.fading_out == false
 	get_tree().change_scene_to_packed(game_scene)
 
 
@@ -17,4 +21,6 @@ func _on_settings_pressed() -> void:
 
 
 func _on_quit_pressed() -> void:
+	MusicPlayer._transition_out()
+	await MusicPlayer.fading_out == false
 	get_tree().quit()

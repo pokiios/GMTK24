@@ -15,6 +15,7 @@ func _process(delta):
 
 
 func _on_area_3d_area_entered(area):
+	SfxPlayer._play_sound("chopping")
 	var body = area.get_parent()
 	var knife := body as Knife#Glass
 	if knife:

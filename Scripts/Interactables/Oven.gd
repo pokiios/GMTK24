@@ -19,6 +19,10 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact"):
 		if is_next_to_knob:
 			stove_is_on = !stove_is_on
+			if stove_is_on:
+				SfxPlayer._play_sound("stove")
+			if !stove_is_on:
+				SfxPlayer.stop()
 		if is_next_to_handle:
 			oven_is_open = !oven_is_open
 			oven_interaction.emit()
@@ -39,6 +43,8 @@ func _on_knob_area_body_exited(body: Node3D) -> void:
 
 func _move_oven_door():
 	if oven_is_open:
+		SfxPlayer._play_sound("oven_open")
 		$Oven_001.rotate_x(45)
 	elif !oven_is_open:
 		$Oven_001.rotate_x(-45)
+		SfxPlayer._play_sound("oven_close")

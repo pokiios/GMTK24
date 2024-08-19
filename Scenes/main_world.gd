@@ -4,6 +4,8 @@ var task_num = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	MusicPlayer._play_song("game_music")
+	MusicPlayer._transition_in()
 	#set task counter to 0
 	pass # Replace with function body.
 

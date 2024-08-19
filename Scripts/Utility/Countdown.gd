@@ -22,6 +22,7 @@ func _on_timer_timeout() -> void:
 	timer.stop()
 	match(timer_name):
 		"Game":
+			MusicPlayer._transition_out()
 			get_tree().change_scene_to_packed(game_over_scene)
 		"Oven":
 			#oven sfx and make things cooked

@@ -24,14 +24,18 @@ func _input(event: InputEvent) -> void:
 
 func _move_top_door():
 	if top_door_open:
+		SfxPlayer._play_sound("fridge_open")
 		$TopPivot.rotate_y(30)
 	elif !top_door_open:
+		SfxPlayer._play_sound("fridge_close")
 		$TopPivot.rotate_y(-30)
 
 func _move_bottom_door():
 	if bottom_door_open:
+		SfxPlayer._play_sound("fridge_open")
 		$BottomPivot.rotate_y(30)
 	elif !bottom_door_open:
+		SfxPlayer._play_sound("fridge_close")
 		$BottomPivot.rotate_y(-30)
 
 func _on_top_handle_area_body_entered(body: Node3D) -> void:
