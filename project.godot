@@ -22,7 +22,6 @@ buses/default_bus_layout="res://UI/default_bus_layout.tres"
 [autoload]
 
 MusicPlayer="*res://Scripts/Utility/MusicPlayer.gd"
-SfxPlayer="*res://Scripts/Utility/SFXPlayer.gd"
 
 [display]
 

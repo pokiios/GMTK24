@@ -3,10 +3,9 @@ class_name Potato
 
 @export var chunk_scene : PackedScene
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -15,10 +14,12 @@ func _process(delta):
 
 
 func _on_area_3d_area_entered(area):
-	SfxPlayer._play_sound("chopping")
+
 	var body = area.get_parent()
 	var knife := body as Knife#Glass
 	if knife:
+		$AudioStreamPlayer3D.play()
+		await $AudioStreamPlayer3D.finished
 		for i in 4:
 			var chunk = chunk_scene.instantiate()
 			self.get_parent().add_child(chunk)

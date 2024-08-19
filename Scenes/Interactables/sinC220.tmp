@@ -54,7 +54,6 @@ skeleton = NodePath("../..")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." index="6"]
 stream = ExtResource("3_i112j")
-bus = &"SFX"
 
 [connection signal="body_entered" from="GlassArea" to="." method="_on_glass_area_body_entered"]
 [connection signal="body_entered" from="TapArea" to="." method="_on_tap_area_body_entered"]

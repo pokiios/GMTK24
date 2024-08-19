@@ -26,9 +26,9 @@ func _input(event: InputEvent) -> void:
 		if player_next_to_tap:
 			tap_is_on = !tap_is_on
 			if tap_is_on:
-				SfxPlayer._play_sound("tap_running")
+				$AudioStreamPlayer3D.play()
 			if !tap_is_on:
-				SfxPlayer.stop()
+				$AudioStreamPlayer3D.stop()
 
 # If in the tap area and it's interacted with, turn tap on
 func _on_tap_area_body_entered(body: Node3D) -> void:

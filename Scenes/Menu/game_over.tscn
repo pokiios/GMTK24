@@ -144,6 +144,11 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 42
 text = "Quit"
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[connection signal="mouse_entered" from="Control/MarginContainer/PanelContainer/VBoxContainer/Retry" to="." method="_on_retry_mouse_entered"]
 [connection signal="pressed" from="Control/MarginContainer/PanelContainer/VBoxContainer/Retry" to="." method="_on_retry_pressed"]
+[connection signal="mouse_entered" from="Control/MarginContainer/PanelContainer/VBoxContainer/Main Menu" to="." method="_on_main_menu_mouse_entered"]
 [connection signal="pressed" from="Control/MarginContainer/PanelContainer/VBoxContainer/Main Menu" to="." method="_on_main_menu_pressed"]
+[connection signal="mouse_entered" from="Control/MarginContainer/PanelContainer/VBoxContainer/Quit" to="." method="_on_quit_mouse_entered"]
 [connection signal="pressed" from="Control/MarginContainer/PanelContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

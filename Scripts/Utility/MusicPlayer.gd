@@ -15,7 +15,7 @@ func _ready() -> void:
 func _process(delta : float) -> void:
 	if fading_in:
 		volume_db += delta * 60
-		if volume_db >= 0:
+		if volume_db >= -10:
 			fading_in = false
 	if fading_out:
 		volume_db -= delta * 60

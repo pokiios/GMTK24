@@ -58,6 +58,9 @@ shape = SubResource("BoxShape3D_0e1bi")
 
 [node name="Node3D" type="Node3D" parent="." index="3"]
 
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." index="4"]
+bus = &"SFX"
+
 [connection signal="body_entered" from="BottomPivot/BottomHandleArea" to="." method="_on_bottom_handle_area_body_entered"]
 [connection signal="body_exited" from="BottomPivot/BottomHandleArea" to="." method="_on_bottom_handle_area_body_exited"]
 [connection signal="body_entered" from="TopPivot/TopHandleArea" to="." method="_on_top_handle_area_body_entered"]

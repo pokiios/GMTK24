@@ -11,10 +11,17 @@ var has_food : Array
 var oven : Oven
 var player : Player
 
+var is_water_boiling : bool = false
+var is_water_poured : bool = false
 @export var chunk_scene : PackedScene
 @export var mash_scene : PackedScene
+
+var pour
+var boiled
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	pour = preload("res://Assets/SFX/water_pour.wav")
+	boiled = preload("res://Assets/SFX/boiling_water.wav")
 	for child in self.get_parent().get_children():
 		if child is Oven:
 			oven = child
@@ -28,6 +35,7 @@ func _ready():
 func _process(delta):
 	if Input.is_action_just_pressed("interact") && valid_to_fill && !is_full:
 			$Water.visible = true
+			_play_sound("pour")
 			is_full = true
 	elif Input.is_action_just_pressed("interact") && valid_to_fill && is_full:
 			$Water.visible = false
@@ -36,6 +44,7 @@ func _process(delta):
 	if oven:		
 		if oven.stove_is_on && is_full:
 			is_boiling = true
+			_play_sound("boil")
 			#need steam particles
 		else: 
 			is_boiling = false
@@ -44,7 +53,7 @@ func _process(delta):
 		is_boiling = false
 		await get_tree().create_timer(1.0).timeout
 		print("potatoes are boiled")
-		
+		$AudioStreamPlayer3D.stop()
 		food_boiled = true
 	
 	if food_boiled && has_food.size() >= 2 && !is_full:
@@ -121,3 +130,12 @@ func _on_area_3d_2_body_exited(body):
 	elif body is Player:
 		player_in_pot = false
 	pass # Replace with function body.
+
+func _play_sound(name: String):
+	match(name):
+		"pour":
+			$AudioStreamPlayer3D.stream = pour
+		"boil":
+			$AudioStreamPlayer3D.stream = boiled
+	$AudioStreamPlayer3D.play()
+	
