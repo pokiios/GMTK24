@@ -1,0 +1,219 @@
+[gd_scene load_steps=9 format=4 uid="uid://b4lu0iwitb6g3"]
+
+[ext_resource type="PackedScene" uid="uid://cwvppoou0ooj7" path="res://Assets/Models/Dutch Oven/pan_dutch_oven.glb" id="1_yk1mg"]
+[ext_resource type="Script" path="res://oven_dish.gd" id="2_1b8at"]
+[ext_resource type="Material" uid="uid://d2sac0o84lqtd" path="res://addons/pixpal_tools/Imphenzia/PixPal/Materials/M_ImphenziaPixPal.tres" id="3_40mjg"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cqrvr"]
+size = Vector3(0.327583, 0.00928906, 0.202209)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_napyg"]
+radius = 0.0934518
+height = 0.38348
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_rqlj7"]
+_surfaces = [{
+"aabb": AABB(-0.0177393, 0.000151462, -0.0452006, 0.0761061, 0.0774407, 0.0904012),
+"format": 34359742465,
+"index_count": 90,
+"index_data": PackedByteArray("DwAHAAkADwAQAAcAEAADAAcAEAAMAAMADgABAAUADgANAAEACwAAAAQACwAIAAAACAAQAA8ACAAGABAABgAEAAIABgALAAQADAAFAAMADAAOAAUABgAIAAsAAwAKAAcAAwAFAAoABQAJAAoABQABAAkADQAJAAEADQAPAAkACgAJAAcAAAAPAA0AAAAIAA8AAgAOAAwAAgAEAA4ABAANAA4ABAAAAA0ABgAMABAABgACAAwA"),
+"name": "ImphenziaPixPal",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 17,
+"vertex_data": PackedByteArray("b24NPcn5ijvKKdQ8tiMLPax/eD26bt08/1DkPKuklzvHEtO8tiMLPax/eD26bt28ZxALPVDVWznYaDgu/aMnPWfYgz1vFpAuMBGPvBjlfzte6e+8AXhVvJ0/iz2jr/u8MBGPvBjlfzte6e88AXhVvJ0/iz2jr/s8eoxKvKLonj0pndWu+FGRvNbRHjmQvv+uXbA5Pd0LDj0qaA29XbA5Pd0LDj0qaA09FhJvPQ5XCj1nkAEvNJh2vAs4Hz1HJDk9NJh2vAs4Hz1HJDm9")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_aky07"]
+resource_name = "potatoHalf02_potatoHalf02"
+_surfaces = [{
+"aabb": AABB(-0.0177393, 0.000151462, -0.0452006, 0.0761061, 0.0774407, 0.0904012),
+"attribute_data": PackedByteArray("hgIlPqjexT71IBA/IKe+PYYCJT6o3sU+9w7QPvhDqD2GAiU+qN7FPvUgED8gp749hgIlPqjexT4TTdI+aACoPYYCJT6o3sU+Da/JPhgy1z2GAiU+qN7FPg2vyT4YMtc9hgIlPqjexT4ECw8/KB29PYYCJT6o3sU+7zANPyAJpz2GAiU+qN7FPgQLDz8oHb09hgIlPqjexT4dEww/kOynPYYCJT6o3sU+w/nLPjDK1j2GAiU+qN7FPsP5yz4wytY9hgIlPqjexT7ulw8/2Im9PYYCJT6o3sU+7pcPP9iJvT2GAiU+qN7FPu6XDz/Yib09hgIlPqjexT7ulw8/2Im9PYYCJT6o3sU+TdfKPsAD2D2GAiU+qN7FPk3Xyj7AA9g9hgIlPqjexT5N18o+wAPYPYYCJT6o3sU+TdfKPsAD2D2GAiU+qN7FPsZ6wj7kFgM+hgIlPqjexT7GesI+5BYDPoYCJT6o3sU+vP4OP/jEuD2GAiU+qN7FPrg7DT/wU589hgIlPqjexT4UEMU+6FcBPoYCJT6o3sU+r/ULP5jqnz2GAiU+qN7FPgULzD6Itc49hgIlPqjexT70OMM+TNUHPoYCJT6o3sU+9DjDPkzVBz6GAiU+qN7FPpo6ED944bk9hgIlPqjexT6p+M8+aG+fPYYCJT6o3sU+mtfFPuxRBj6GAiU+qN7FPneI0j7A/J89hgIlPqjexT4ncMk+kCvPPYYCJT6o3sU+mtfFPnCWAz6GAiU+qN7FPu+8yj6Itc49hgIlPqjexT7vvMo+iLXOPYYCJT6o3sU+2rLCPoiOBT6GAiU+qN7FPhafDz/4xLg9hgIlPqjexT4Wnw8/+MS4PYYCJT6o3sU+l4IMPzi7qT2GAiU+qN7FPpeCDD84u6k9hgIlPqjexT5Sxg4/gM3CPYYCJT6o3sU+B1PMPpiK2T2GAiU+qN7FPi9r0T4Y1qk9hgIlPqjexT4va9E+GNapPYYCJT6o3sU+r2XJPkgP2j2GAiU+qN7FPqw6ED/oHMQ9hgIlPqjexT5Gfw8/wIfEPYYCJT6o3sU+k+LKPmj+2z2GAiU+qN7FPpPiyj5o/ts9hgIlPqjexT5Gfw8/wIfEPYYCJT6o3sU+/tfEPqQ7CD6GAiU+qN7FPv7XxD6kOwg+hgIlPqjexT41mtE+aG+fPYYCJT6o3sU+NZrRPmhvnz2GAiU+qN7FPnSywz5Q6QA+hgIlPqjexT50ssM+UOkAPoYCJT6o3sU+y2oMP/BTnz2GAiU+qN7FPstqDD/wU589"),
+"format": 34359742519,
+"index_count": 90,
+"index_data": PackedByteArray("NQAYAB8ANQA5ABgAOwAJABkAOwApAAkAMgAFABMAMgAuAAUAJgAAAAwAJgAdAAAAGwA4ADQAGwAUADgAFgANAAYAFgAnAA0AKwASAAsAKwAxABIAFQAcACUACgAjABoACgAQACMAEQAhACQAEQAEACEALQAgAAMALQA3ACAAIgAfABgAAQA2ACwAAQAeADYACAAwACoACAAOADAADwAvADMADwACAC8AFwAoADoAFwAHACgA"),
+"material": ExtResource("3_40mjg"),
+"name": "ImphenziaPixPal",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 60,
+"vertex_data": PackedByteArray("b24NPcn5ijvKKdQ8b24NPcn5ijvKKdQ8b24NPcn5ijvKKdQ8tiMLPax/eD26bt08tiMLPax/eD26bt08tiMLPax/eD26bt08/1DkPKuklzvHEtO8/1DkPKuklzvHEtO8/1DkPKuklzvHEtO8tiMLPax/eD26bt28tiMLPax/eD26bt28tiMLPax/eD26bt28ZxALPVDVWznYaDguZxALPVDVWznYaDguZxALPVDVWznYaDguZxALPVDVWznYaDgu/aMnPWfYgz1vFpAu/aMnPWfYgz1vFpAu/aMnPWfYgz1vFpAu/aMnPWfYgz1vFpAuMBGPvBjlfzte6e+8MBGPvBjlfzte6e+8MBGPvBjlfzte6e+8MBGPvBjlfzte6e+8AXhVvJ0/iz2jr/u8AXhVvJ0/iz2jr/u8AXhVvJ0/iz2jr/u8MBGPvBjlfzte6e88MBGPvBjlfzte6e88MBGPvBjlfzte6e88MBGPvBjlfzte6e88AXhVvJ0/iz2jr/s8AXhVvJ0/iz2jr/s8AXhVvJ0/iz2jr/s8eoxKvKLonj0pndWueoxKvKLonj0pndWueoxKvKLonj0pndWu+FGRvNbRHjmQvv+u+FGRvNbRHjmQvv+u+FGRvNbRHjmQvv+uXbA5Pd0LDj0qaA29XbA5Pd0LDj0qaA29XbA5Pd0LDj0qaA29XbA5Pd0LDj0qaA29XbA5Pd0LDj0qaA09XbA5Pd0LDj0qaA09XbA5Pd0LDj0qaA09XbA5Pd0LDj0qaA09FhJvPQ5XCj1nkAEvFhJvPQ5XCj1nkAEvFhJvPQ5XCj1nkAEvFhJvPQ5XCj1nkAEvNJh2vAs4Hz1HJDk9NJh2vAs4Hz1HJDk9NJh2vAs4Hz1HJDk9NJh2vAs4Hz1HJDk9NJh2vAs4Hz1HJDm9NJh2vAs4Hz1HJDm9NJh2vAs4Hz1HJDm9NJh2vAs4Hz1HJDm97oCiEP///z91iURe////P5/FTVf///8/To4iov///z+fkuLW////Py3DTaX///8/95F6Af///z9S3QwK////P3zUPD3///8/292v8f///z8bqV7t////P7Ha0Lz///8/7oCiEP///z/3kXoB////P3zUPD3///8/n8VNV////z8bqV7t////P5+S4tb///8/sdrQvP///z8tw02l////P0QIRIj///8/vQi9iP///z/3kXoB////P1LdDAr///8/UAhPiP///z/b3a/x////PxupXu3///8/RAhEiP///z+9CL2I////P+6AohD///8/dYlEXv///z9QCE+I////P06OIqL///8/n5Li1v///z9QCE+I////PxupXu3///8/n5Li1v///z+9CL2I////P+6AohD///8/95F6Af///z9S3QwK////P9vdr/H///8/fNQ8Pf///z+x2tC8////P3WJRF7///8/To4iov///z8tw02l////P5/FTVf///8/fNQ8Pf///z+x2tC8////Py3DTaX///8/n8VNV////z9ECESI////P1AIT4j///8/dYlEXv///z9OjiKi////P0QIRIj///8/UAhPiP///z9S3QwK////P9vdr/H///8/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_rqlj7")
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_fajkh"]
+height = 0.157386
+radius = 0.227704
+
+[node name="OvenDish" instance=ExtResource("1_yk1mg")]
+script = ExtResource("2_1b8at")
+
+[node name="CollisionShape3D" parent="pan dutch oven/StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00187057, 0, 0)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="pan dutch oven/StaticBody3D" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00920486, -0.0529727, -0.00180054)
+shape = SubResource("BoxShape3D_cqrvr")
+
+[node name="Area3D" type="Area3D" parent="." index="1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0"]
+transform = Transform3D(-0.0169289, -0.999857, 0, 0.999857, -0.0169289, 0, 0, 0, 1, 0, 0, -0.00828043)
+shape = SubResource("CapsuleShape3D_napyg")
+
+[node name="Pie" type="Node3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0410443, 0)
+visible = false
+
+[node name="potatoHalf022" type="MeshInstance3D" parent="Pie" index="0"]
+transform = Transform3D(0.110931, -0.193216, -0.974865, 0.988912, 0.118901, 0.0889638, 0.0987232, -0.973925, 0.204264, -0.0719431, -0.0312601, -0.0146929)
+mesh = SubResource("ArrayMesh_aky07")
+skeleton = NodePath("")
+
+[node name="potatoHalf023" type="MeshInstance3D" parent="Pie" index="1"]
+transform = Transform3D(0.122515, -0.861915, -0.492029, 0.990048, 0.140728, 7.45058e-09, 0.0692424, -0.487132, 0.870579, -0.0889133, -0.02302, 0.0153337)
+mesh = SubResource("ArrayMesh_aky07")
+skeleton = NodePath("")
+
+[node name="potatoHalf024" type="MeshInstance3D" parent="Pie" index="2"]
+transform = Transform3D(0.097207, 0.595657, -0.797335, 0.972355, -0.227739, -0.0515903, -0.212315, -0.770278, -0.601327, -0.134942, -0.0270536, 0.0500653)
+mesh = SubResource("ArrayMesh_aky07")
+skeleton = NodePath("")
+
+[node name="potatoHalf025" type="MeshInstance3D" parent="Pie" index="3"]
+transform = Transform3D(0.427348, 0.882826, 0.194916, 0.839668, -0.30764, -0.447567, -0.33516, 0.354931, -0.872749, -0.120794, -0.0329758, 0.0107014)
+mesh = SubResource("ArrayMesh_aky07")
+skeleton = NodePath("")
+
+[node name="potatoHalf026" type="MeshInstance3D" parent="Pie" index="4"]
+transform = Transform3D(0.113104, -0.214873, -0.970071, 0.988912, 0.118901, 0.0889638, 0.0962265, -0.969377, 0.225939, 0.00654033, -0.0312601, -0.0281897)
+mesh = SubResource("ArrayMesh_aky07")
+skeleton = NodePath("")
+
+[node name="potatoHalf027" type="MeshInstance3D" parent="Pie" index="5"]
+transform = Transform3D(0.124028, -0.872557, -0.472505, 0.990048, 0.140728, 7.45058e-09, 0.0664948, -0.467802, 0.881328, -0.00975652, -0.02302, 0.00220766)
+mesh = SubResource("ArrayMesh_aky07")
+skeleton = NodePath("")
+
+[node name="potatoHalf028" type="MeshInstance3D" parent="Pie" index="6"]
+transform = Transform3D(0.0924512, 0.578342, -0.810539, 0.972355, -0.227739, -0.0515903, -0.214428, -0.783361, -0.583408, -0.0759637, -0.0270536, 0.062136)
+mesh = SubResource("ArrayMesh_aky07")
+skeleton = NodePath("")
+
+[node name="potatoHalf029" type="MeshInstance3D" parent="Pie" index="7"]
+transform = Transform3D(0.419772, 0.890517, 0.175418, 0.839668, -0.30764, -0.447567, -0.344601, 0.335169, -0.876877, -0.0417324, -0.0329758, -0.00171305)
+mesh = SubResource("ArrayMesh_aky07")
+skeleton = NodePath("")
+
+[node name="potatoHalf030" type="MeshInstance3D" parent="Pie" index="8"]
+transform = Transform3D(-0.00802424, -0.555425, 0.831528, 0.988415, 0.12163, 0.0907816, -0.151561, 0.822624, 0.548014, 0.00654033, -0.0312601, 0.033757)
+mesh = SubResource("ArrayMesh_aky07")
+skeleton = NodePath("")
+
+[node name="potatoHalf031" type="MeshInstance3D" parent="Pie" index="9"]
+transform = Transform3D(-0.0371131, 0.261097, 0.964599, 0.989593, 0.143894, -0.000874534, -0.139029, 0.954527, -0.26372, 0.0398097, -0.0230502, 0.0246339)
+mesh = SubResource("ArrayMesh_aky07")
+skeleton = NodePath("")
+
+[node name="potatoHalf032" type="MeshInstance3D" parent="Pie" index="10"]
+transform = Transform3D(-0.219197, -0.96636, 0.134541, 0.972616, -0.227342, -0.0483085, 0.0772702, 0.120268, 0.98973, 0.128853, -0.0270613, 0.0314389)
+mesh = SubResource("ArrayMesh_aky07")
+skeleton = NodePath("")
+
+[node name="potatoHalf033" type="MeshInstance3D" parent="Pie" index="11"]
+transform = Transform3D(-0.538903, -0.369685, -0.756913, 0.83944, -0.310545, -0.445985, -0.0701816, -0.875725, 0.477682, 0.058971, -0.0329201, 0.0505641)
+mesh = SubResource("ArrayMesh_aky07")
+skeleton = NodePath("")
+
+[node name="potatoHalf034" type="MeshInstance3D" parent="Pie" index="12"]
+transform = Transform3D(-0.136557, 0.963514, 0.230203, 0.988912, 0.118901, 0.0889638, 0.0583464, 0.239799, -0.969067, 0.0899988, -0.0312601, 0.00724176)
+mesh = SubResource("ArrayMesh_aky07")
+skeleton = NodePath("")
+
+[node name="potatoHalf035" type="MeshInstance3D" parent="Pie" index="13"]
+transform = Transform3D(-0.114813, 0.807726, -0.578271, 0.990048, 0.140728, 7.45058e-09, 0.0813791, -0.572516, -0.815845, 0.070054, -0.02302, -0.020897)
+mesh = SubResource("ArrayMesh_aky07")
+skeleton = NodePath("")
+
+[node name="potatoHalf036" type="MeshInstance3D" parent="Pie" index="14"]
+transform = Transform3D(0.150729, 0.443395, 0.883562, 0.972355, -0.227739, -0.0515903, 0.178347, 0.866911, -0.465464, 0.0459245, -0.0270536, -0.0753802)
+mesh = SubResource("ArrayMesh_aky07")
+skeleton = NodePath("")
+
+[node name="potatoHalf037" type="MeshInstance3D" parent="Pie" index="15"]
+transform = Transform3D(0.121334, -0.697007, 0.706725, 0.839668, -0.307639, -0.447567, 0.529374, 0.647719, 0.547927, 0.0878181, -0.0329758, -0.047772)
+mesh = SubResource("ArrayMesh_aky07")
+skeleton = NodePath("")
+
+[node name="potatoHalf038" type="MeshInstance3D" parent="Pie" index="16"]
+transform = Transform3D(-0.100937, 0.977619, -0.184589, 0.988912, 0.118901, 0.0889638, 0.10892, -0.173562, -0.978781, 0.0760217, -0.0312601, -0.0267599)
+mesh = SubResource("ArrayMesh_aky07")
+skeleton = NodePath("")
+
+[node name="potatoHalf039" type="MeshInstance3D" parent="Pie" index="17"]
+transform = Transform3D(-0.0716957, 0.504392, -0.860493, 0.990048, 0.140728, 1.11759e-08, 0.121096, -0.85193, -0.509462, 0.046343, -0.02302, -0.0129048)
+mesh = SubResource("ArrayMesh_aky07")
+skeleton = NodePath("")
+
+[node name="potatoHalf040" type="MeshInstance3D" parent="Pie" index="18"]
+transform = Transform3D(0.210314, 0.758125, 0.617263, 0.972354, -0.227739, -0.0515903, 0.101463, 0.611049, -0.785063, -0.0107232, -0.0270536, -0.0842194)
+mesh = SubResource("ArrayMesh_aky07")
+skeleton = NodePath("")
+
+[node name="potatoHalf041" type="MeshInstance3D" parent="Pie" index="19"]
+transform = Transform3D(0.326485, -0.372639, 0.868647, 0.839668, -0.307639, -0.447567, 0.434011, 0.875499, 0.212453, 0.0516164, -0.0329758, -0.0761122)
+mesh = SubResource("ArrayMesh_aky07")
+skeleton = NodePath("")
+
+[node name="potatoHalf042" type="MeshInstance3D" parent="Pie" index="20"]
+transform = Transform3D(-0.100937, 0.977619, -0.184589, 0.988912, 0.118901, 0.0889638, 0.10892, -0.173562, -0.978781, 0.00837646, -0.0312601, -0.0267599)
+mesh = SubResource("ArrayMesh_aky07")
+skeleton = NodePath("")
+
+[node name="potatoHalf043" type="MeshInstance3D" parent="Pie" index="21"]
+transform = Transform3D(-0.0716957, 0.504392, -0.860493, 0.990048, 0.140728, 1.11759e-08, 0.121096, -0.85193, -0.509462, -0.0213023, -0.02302, -0.0305197)
+mesh = SubResource("ArrayMesh_aky07")
+skeleton = NodePath("")
+
+[node name="potatoHalf044" type="MeshInstance3D" parent="Pie" index="22"]
+transform = Transform3D(0.210314, 0.758125, 0.617263, 0.972354, -0.227739, -0.0515903, 0.101463, 0.611049, -0.785063, -0.0783684, -0.0270536, -0.0682626)
+mesh = SubResource("ArrayMesh_aky07")
+skeleton = NodePath("")
+
+[node name="potatoHalf045" type="MeshInstance3D" parent="Pie" index="23"]
+transform = Transform3D(0.326485, -0.372639, 0.868647, 0.839668, -0.307639, -0.447567, 0.434011, 0.875499, 0.212453, -0.0160288, -0.0329758, -0.0761122)
+mesh = SubResource("ArrayMesh_aky07")
+skeleton = NodePath("")
+
+[node name="potatoHalf046" type="MeshInstance3D" parent="Pie" index="24"]
+transform = Transform3D(0.121415, -0.992327, -0.0233793, 0.988912, 0.118901, 0.0889638, -0.0855012, -0.0339216, 0.99576, -0.0462935, -0.0312601, 0.010025)
+mesh = SubResource("ArrayMesh_aky07")
+skeleton = NodePath("")
+
+[node name="potatoHalf047" type="MeshInstance3D" parent="Pie" index="25"]
+transform = Transform3D(0.0953514, -0.670814, 0.735471, 0.990048, 0.140728, -1.11759e-08, -0.103502, 0.728152, 0.677556, -0.0511913, -0.02302, 0.0178507)
+mesh = SubResource("ArrayMesh_aky07")
+skeleton = NodePath("")
+
+[node name="potatoHalf048" type="MeshInstance3D" parent="Pie" index="26"]
+transform = Transform3D(-0.18456, -0.614185, -0.767277, 0.972354, -0.227739, -0.0515903, -0.143053, -0.755587, 0.639237, 0.0205764, -0.0270536, 0.0897369)
+mesh = SubResource("ArrayMesh_aky07")
+skeleton = NodePath("")
+
+[node name="potatoHalf049" type="MeshInstance3D" parent="Pie" index="27"]
+transform = Transform3D(-0.2289, 0.546862, -0.805324, 0.839668, -0.307639, -0.447567, -0.492507, -0.778652, -0.388764, -0.0327058, -0.0329758, 0.0633789)
+mesh = SubResource("ArrayMesh_aky07")
+skeleton = NodePath("")
+
+[node name="Area3D2" type="Area3D" parent="." index="3"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D2" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0327544, 0)
+shape = SubResource("CylinderShape3D_fajkh")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
+[connection signal="area_entered" from="Area3D2" to="." method="_on_area_3d_2_area_entered"]
+[connection signal="area_exited" from="Area3D2" to="." method="_on_area_3d_2_area_exited"]
