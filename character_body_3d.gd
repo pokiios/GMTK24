@@ -32,8 +32,8 @@ func _physics_process(delta):
 		velocity += get_gravity() * delta
 		
 	if mouse_right_down && carrying:
-		throw_power += 4 * delta
-		clamp(throw_power,0,10)
+		throw_power += 1 * delta
+		clamp(throw_power,0,5)
 	$Pivot/PlayerCamera/MarginContainer/VBoxContainer/ProgressBar.set_value(throw_power)
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
@@ -82,7 +82,7 @@ func _physics_process(delta):
 	elif Input.is_action_just_released("right_click") && carrying:
 		carrying.freeze = false
 		carry_col.disabled = false
-		carrying.apply_impulse(-throw_power * transform.basis.z)
+		carrying.apply_impulse(Vector3(-throw_power * transform.basis.z.x, 0.1*throw_power, -throw_power * transform.basis.z.z))
 		throw_power = 0
 		
 		for child in carrying.get_children():

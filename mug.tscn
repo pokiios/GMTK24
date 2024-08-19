@@ -56,6 +56,7 @@ height = 0.08
 radius = 0.1
 
 [node name="Mug" type="RigidBody3D" groups=["grabable"]]
+mass = 0.3
 script = ExtResource("2_quptt")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

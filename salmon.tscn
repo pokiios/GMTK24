@@ -46,6 +46,7 @@ radius = 0.107834
 height = 0.675614
 
 [node name="salmon" type="RigidBody3D" groups=["grabable"]]
+mass = 3.0
 script = ExtResource("2_7y2yy")
 chunk_scene = ExtResource("2_6c5xh")
 

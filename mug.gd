@@ -19,7 +19,7 @@ func _process(delta):
 	 # Replace with function body.
 	if is_full:
 		$CollisionShape3D/Water.visible = true
-	else:
+	elif !is_full:
 		$CollisionShape3D/Water.visible = false
 
 	pass

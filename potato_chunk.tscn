@@ -44,6 +44,7 @@ radius = 0.04
 height = 0.1
 
 [node name="Potato Chunk" type="RigidBody3D" groups=["grabable"]]
+mass = 0.05
 script = ExtResource("1_egdg8")
 
 [node name="Area3D" type="Area3D" parent="."]
