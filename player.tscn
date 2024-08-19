@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://bmiacpcm8hs3q"]
+[gd_scene load_steps=8 format=3 uid="uid://bmiacpcm8hs3q"]
 
 [ext_resource type="Script" path="res://character_body_3d.gd" id="1_whoe0"]
 [ext_resource type="Script" path="res://player_camera.gd" id="2_5fktn"]
 [ext_resource type="Texture2D" uid="uid://b02on8bgp7ylw" path="res://UI/Images/crosshair.png" id="3_f2718"]
 [ext_resource type="Theme" uid="uid://dm63onoxy1vv1" path="res://UI/Theme/UI_theme.tres" id="3_orbel"]
+[ext_resource type="FontFile" uid="uid://dk1ilskklsrhb" path="res://UI/Fonts/Cormorant-Medium.ttf" id="5_6u8js"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4y1b2"]
 size = Vector3(1, 0.5, 1)
@@ -76,3 +77,52 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_f2718")
+
+[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -200.0
+offset_bottom = 196.0
+grow_horizontal = 0
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/MarginContainer2"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MarginContainer2/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer2/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/MarginContainer2/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("5_6u8js")
+bbcode_enabled = true
+text = "Task 1"
+fit_content = true
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="CanvasLayer/MarginContainer2/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("5_6u8js")
+text = "Task 2"
+fit_content = true
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="CanvasLayer/MarginContainer2/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("5_6u8js")
+text = "Task 3"
+fit_content = true
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="CanvasLayer/MarginContainer2/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("5_6u8js")
+text = "Task 4"
+fit_content = true
