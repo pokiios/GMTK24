@@ -60,7 +60,6 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -4.06728, -0.395674, -2.78635
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.65262, -0.482337, -1.98077)
 
 [node name="Knife" parent="." instance=ExtResource("5_yppjm")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
 [node name="SpotLight3D2" type="SpotLight3D" parent="."]
 transform = Transform3D(0.823226, -2.48156e-08, 0.567714, -0.567714, -3.59843e-08, 0.823226, 0, -1, -4.37114e-08, 8.98208, 5, 0)
@@ -76,6 +75,9 @@ spot_angle = 40.71
 
 [node name="Potato" parent="." instance=ExtResource("6_a8ep1")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -3.80417, -0.226379, -0.300094)
+
+[node name="salmon2" parent="." instance=ExtResource("8_ftlps")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.35402, -0.6339, -0.323762)
 
 [node name="salmon" parent="." instance=ExtResource("8_ftlps")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.35402, -0.6339, -0.879368)

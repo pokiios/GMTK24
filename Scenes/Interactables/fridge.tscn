@@ -1,7 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://c6ukelnk3v1em"]
+[gd_scene load_steps=6 format=3 uid="uid://c6ukelnk3v1em"]
 
 [ext_resource type="PackedScene" uid="uid://dtu2clh6dk0ct" path="res://Assets/Models/Fridge/Fridge B.fbx" id="1_tejvc"]
 [ext_resource type="Script" path="res://Scripts/Interactables/Fridge.gd" id="2_pavi0"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jyofw"]
+size = Vector3(0.0128395, 0.00778271, 0.001)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_e3omw"]
 size = Vector3(0.182526, 0.177246, 0.163818)
@@ -11,6 +14,30 @@ size = Vector3(0.180115, 0.20874, 0.159729)
 
 [node name="Fridge B" instance=ExtResource("1_tejvc")]
 script = ExtResource("2_pavi0")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Fridge B/StaticBody3D" index="1"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, -8.52651e-14, 0, 8.52651e-14, 0.5, -0.000765942, 0.00187324, 0.00226863)
+shape = SubResource("BoxShape3D_jyofw")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="Fridge B/StaticBody3D" index="2"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, -8.52651e-14, 0, 8.52651e-14, 0.5, -0.000765942, 0.00187324, -0.000429405)
+shape = SubResource("BoxShape3D_jyofw")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="Fridge B/StaticBody3D" index="3"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, -8.52651e-14, 0, 8.52651e-14, 0.5, -0.000765942, 0.00187324, 0.00508272)
+shape = SubResource("BoxShape3D_jyofw")
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="Fridge B/StaticBody3D" index="4"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, -8.52651e-14, 0, 8.52651e-14, 0.5, -0.000765942, 0.00187325, -0.00420065)
+shape = SubResource("BoxShape3D_jyofw")
+
+[node name="CollisionShape3D7" type="CollisionShape3D" parent="Fridge B/StaticBody3D" index="5"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, -8.52651e-14, 0, 8.52651e-14, 0.5, -0.000765942, 0.00187325, -0.00702274)
+shape = SubResource("BoxShape3D_jyofw")
+
+[node name="CollisionShape3D8" type="CollisionShape3D" parent="Fridge B/StaticBody3D" index="6"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, -8.52651e-14, 0, 8.52651e-14, 0.5, -0.000765942, 0.00187325, -0.00949204)
+shape = SubResource("BoxShape3D_jyofw")
 
 [node name="BottomPivot" parent="." index="1"]
 transform = Transform3D(100, 0, 0, 0, -4.37114e-06, 100, 0, -100, -4.37114e-06, -0.451545, -0.552474, 0.102548)

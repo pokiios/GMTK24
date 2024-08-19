@@ -57,7 +57,7 @@ func _physics_process(delta):
 		var origin = camera.project_ray_origin(mousepos)
 		var end = origin + camera.project_ray_normal(mousepos) * RAY_LENGTH
 		var query = PhysicsRayQueryParameters3D.create(origin, end)
-		query.collide_with_areas = true
+		query.collide_with_areas = false
 		var result = space_state.intersect_ray(query)
 		
 		var the_node := result['collider'] as Node3D
