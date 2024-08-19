@@ -1,13 +1,15 @@
-[gd_scene load_steps=11 format=3 uid="uid://dcsskaspr4ih1"]
+[gd_scene load_steps=13 format=3 uid="uid://dcsskaspr4ih1"]
 
 [ext_resource type="PackedScene" uid="uid://bmiacpcm8hs3q" path="res://player.tscn" id="1_044gf"]
-[ext_resource type="PackedScene" path="res://tongs.tscn" id="2_vf2il"]
+[ext_resource type="PackedScene" uid="uid://b7ixidjwrf1em" path="res://tongs.tscn" id="2_vf2il"]
 [ext_resource type="PackedScene" uid="uid://bjj345xkkhs22" path="res://pot.tscn" id="3_g3af2"]
 [ext_resource type="PackedScene" uid="uid://dp4nmgrwgc8s6" path="res://mug.tscn" id="4_m3h3p"]
 [ext_resource type="PackedScene" uid="uid://cc3dukq7jtfdi" path="res://knife.tscn" id="5_yppjm"]
 [ext_resource type="PackedScene" uid="uid://ct4kbra5578jw" path="res://potato.tscn" id="6_a8ep1"]
 [ext_resource type="PackedScene" uid="uid://b1mswej1455m4" path="res://salmon.tscn" id="8_ftlps"]
 [ext_resource type="PackedScene" uid="uid://bkgx51otbum20" path="res://Assets/Models/Food/salmonSlice.glb" id="9_dpqg8"]
+[ext_resource type="PackedScene" uid="uid://bl3ypgreyvrue" path="res://Assets/Models/Plate/plate_021.fbx" id="9_h4arx"]
+[ext_resource type="PackedScene" uid="uid://cwvppoou0ooj7" path="res://Assets/Models/Dutch Oven/pan_dutch_oven.glb" id="10_ktvjg"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_owmqd"]
 size = Vector3(20, 1, 20)
@@ -84,3 +86,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.35402, -0.6339, -0.879368)
 
 [node name="salmonSlice" parent="." instance=ExtResource("9_dpqg8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.84191, -0.6339, 0.223823)
+
+[node name="plate_021" parent="." instance=ExtResource("9_h4arx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.64057, -0.279363, -0.218401)
+
+[node name="Cooking Assets" parent="." instance=ExtResource("10_ktvjg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.64057, -0.279363, -0.218401)
