@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://beet1whbxrsoe"]
+
+[ext_resource type="Script" path="res://win_zone.gd" id="1_tgqij"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_n3av1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hujay"]
+transparency = 1
+albedo_color = Color(0.270588, 1, 0, 0.270588)
+emission_enabled = true
+emission = Color(0, 0.818051, 0, 1)
+emission_energy_multiplier = 7.11
+
+[sub_resource type="BoxMesh" id="BoxMesh_jvagn"]
+material = SubResource("StandardMaterial3D_hujay")
+
+[node name="WinZone" type="Area3D"]
+visible = false
+script = ExtResource("1_tgqij")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.521925, 0, 0, 0, 0.210421, 0, 0, 0, 0.658212, 0, 0, 0)
+shape = SubResource("BoxShape3D_n3av1")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D"]
+mesh = SubResource("BoxMesh_jvagn")
+skeleton = NodePath("../..")

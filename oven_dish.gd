@@ -36,6 +36,7 @@ func _process(delta):
 	if Input.is_action_just_pressed("interact") && valid_to_plate:
 			$Pie.visible = false
 			plate_for_pie.pie.visible = true
+			plate_for_pie.is_pie = true
 			plate_completed.emit()
 	
 	if !oven.oven_is_open && has_mash.size() >=1 && has_fish.size() >= 4:

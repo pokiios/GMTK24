@@ -20,6 +20,7 @@ var carry_col
 
 var pot : Pot
 var oven_dish : ovenDish
+var win_zone : WinZone
 
 func _init():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -33,6 +34,8 @@ func _ready():
 			pot = child
 		elif child is ovenDish:
 			oven_dish = child
+		elif child is WinZone:
+			win_zone = child
 			
 	pot.boil_complete.connect(_on_boiled)
 	pot.mash_complete.connect(_on_mashed)
@@ -171,3 +174,4 @@ func _on_baked():
 	
 func _on_plated():
 	$CanvasLayer/MarginContainer2/PanelContainer/MarginContainer/VBoxContainer/RichTextLabel3.set_text("[s]plate up[/s]")	
+	win_zone.visible = true
