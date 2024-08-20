@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bd2adlwc8o2xe"]
+[gd_scene load_steps=21 format=3 uid="uid://bd2adlwc8o2xe"]
 
 [ext_resource type="PackedScene" uid="uid://jhhbujami2bv" path="res://Scenes/Kitchen.tscn" id="1_c8006"]
 [ext_resource type="Script" path="res://Scenes/main_world.gd" id="1_op4ke"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://ddbt6bf8nvwg3" path="res://Scenes/Utility/countdown.tscn" id="7_ltseb"]
 [ext_resource type="PackedScene" uid="uid://vutub43a03i1" path="res://plate.tscn" id="9_i6oi2"]
 [ext_resource type="PackedScene" uid="uid://fji5qm6md8xd" path="res://Assets/Models/Cutting Board/board_cutting_board_002.fbx" id="10_p7ujf"]
+[ext_resource type="PackedScene" uid="uid://beet1whbxrsoe" path="res://win_zone.tscn" id="11_ghhq0"]
 [ext_resource type="PackedScene" uid="uid://cc3dukq7jtfdi" path="res://knife.tscn" id="11_mk1kx"]
 [ext_resource type="PackedScene" uid="uid://ct4kbra5578jw" path="res://potato.tscn" id="12_h2rva"]
 [ext_resource type="PackedScene" uid="uid://b1mswej1455m4" path="res://salmon.tscn" id="13_oligi"]
@@ -76,6 +77,9 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.404
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 1.08256, 0)
 SPEED = 1.0
 JUMP_VELOCITY = 2.5
+
+[node name="WinZone" parent="Kitchen" instance=ExtResource("11_ghhq0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.582164, 1.00742, -0.171296)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00143242, 2.43686, -0.0158164)
