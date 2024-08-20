@@ -23,6 +23,8 @@ var pour
 var boiled
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$Countdown/Timer.wait_time = 10
+	$Countdown/Label.visible = false
 	$SteamParticles.emitting = false
 	pour = preload("res://Assets/SFX/water_pour.wav")
 	boiled = preload("res://Assets/SFX/boiling_water.wav")
@@ -57,7 +59,12 @@ func _process(delta):
 	
 	if is_boiling && has_food.size() >= 2:
 		is_boiling = false
-		await get_tree().create_timer(1.0).timeout
+		$SteamParticles.emitting = false
+		$Countdown/Label.visible = true
+		$Countdown/Timer.start()
+		await $Countdown/Timer.timeout
+		$Countdown/Timer.stop()
+		$Countdown/Label.visible = false
 		boil_complete.emit()
 		$AudioStreamPlayer3D.stop()
 		food_boiled = true
