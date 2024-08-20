@@ -84,6 +84,8 @@ func _physics_process(delta):
 					carrying.rotation.y = -90
 					carrying.rotation.x = -180
 					carrying.rotation.z = 90
+					
+			
 
 			
 	elif Input.is_action_just_released("right_click") && carrying:
@@ -116,7 +118,14 @@ func _physics_process(delta):
 		carry_col.disabled = true
 		
 		carrying.position = $Pivot/Hands.global_position
-		carrying.rotation = $Pivot/Hands.global_rotation
+		
+		var cast_carrying2 := carrying as plate
+		if cast_carrying2:
+			carrying.rotation.y = $Pivot/Hands.global_rotation.y
+			carrying.rotation.z = $Pivot/Hands.global_rotation.z
+		else:
+			carrying.rotation = $Pivot/Hands.global_rotation
+
 
 
 func _unhandled_input(event):

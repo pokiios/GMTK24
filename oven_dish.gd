@@ -3,7 +3,7 @@ class_name ovenDish
 
 var food_cooked = false
 var valid_to_plate = false
-var oven_closed = true
+var needs_moved = true
 
 var has_mash : Array
 var has_fish : Array
@@ -25,6 +25,13 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	
+	if oven.oven_is_open && needs_moved:
+		global_position.z += 0.3
+		needs_moved = false
+	if !oven.oven_is_open && !needs_moved:
+		global_position.z -= 0.3
+		needs_moved = true
+	
 	if Input.is_action_just_pressed("interact") && valid_to_plate:
 			$Pie.visible = false
 			plate_for_pie.pie.visible = true
@@ -39,8 +46,10 @@ func _process(delta):
 		for each in length:
 				has_fish[0].call_deferred("free")
 				has_fish.remove_at(0)
-		$Pie.visible = true
+	
 	pass
+	if food_cooked:
+		$Pie.visible = true
 
 func _on_area_3d_body_entered(body):
 	if body is mash:

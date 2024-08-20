@@ -46,7 +46,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_7qsuh")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_m1cx0"]
-size = Vector3(0.163161, 0.167078, 0.00865479)
+size = Vector3(0.163161, 0.167078, 0.0276932)
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_xydlf"]
 _surfaces = [{
@@ -144,8 +144,9 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_rdkh3")
 
-[node name="plate_022" type="RigidBody3D"]
+[node name="plate_022" type="RigidBody3D" groups=["grabable"]]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+mass = 0.2
 script = ExtResource("1_7laxu")
 
 [node name="plate_021" type="MeshInstance3D" parent="."]
@@ -154,7 +155,7 @@ mesh = SubResource("ArrayMesh_e5eaw")
 skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00157242, -0.000372319, 0.00801392)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00157242, -0.000372319, 0.000411992)
 shape = SubResource("BoxShape3D_m1cx0")
 
 [node name="Area3D" type="Area3D" parent="."]
@@ -168,7 +169,7 @@ transform = Transform3D(0.72855, -0.684992, -2.9942e-08, 0.684992, 0.72855, -1.1
 shape = SubResource("BoxShape3D_m1cx0")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
-transform = Transform3D(0.72855, -0.684992, -2.9942e-08, 0.684992, 0.72855, -1.18654e-08, 2.9942e-08, -1.18654e-08, 1, 0.00314485, -0.000744638, 0.0160278)
+transform = Transform3D(0.72855, -0.684992, -2.9942e-08, 0.684992, 0.72855, -1.18654e-08, 2.9942e-08, -1.18654e-08, 1, 0.00314485, -0.000744638, -0.00088733)
 shape = SubResource("BoxShape3D_m1cx0")
 
 [node name="Pie" type="Node3D" parent="."]

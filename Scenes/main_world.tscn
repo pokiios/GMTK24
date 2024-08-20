@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bd2adlwc8o2xe"]
+[gd_scene load_steps=20 format=3 uid="uid://bd2adlwc8o2xe"]
 
 [ext_resource type="PackedScene" uid="uid://jhhbujami2bv" path="res://Scenes/Kitchen.tscn" id="1_c8006"]
 [ext_resource type="Script" path="res://Scenes/main_world.gd" id="1_op4ke"]
@@ -9,12 +9,14 @@
 [ext_resource type="PackedScene" uid="uid://bmiacpcm8hs3q" path="res://player.tscn" id="5_id05n"]
 [ext_resource type="PackedScene" uid="uid://bjj345xkkhs22" path="res://pot.tscn" id="6_xesm6"]
 [ext_resource type="PackedScene" uid="uid://ddbt6bf8nvwg3" path="res://Scenes/Utility/countdown.tscn" id="7_ltseb"]
+[ext_resource type="PackedScene" uid="uid://vutub43a03i1" path="res://plate.tscn" id="9_i6oi2"]
 [ext_resource type="PackedScene" uid="uid://fji5qm6md8xd" path="res://Assets/Models/Cutting Board/board_cutting_board_002.fbx" id="10_p7ujf"]
 [ext_resource type="PackedScene" uid="uid://cc3dukq7jtfdi" path="res://knife.tscn" id="11_mk1kx"]
 [ext_resource type="PackedScene" uid="uid://ct4kbra5578jw" path="res://potato.tscn" id="12_h2rva"]
 [ext_resource type="PackedScene" uid="uid://b1mswej1455m4" path="res://salmon.tscn" id="13_oligi"]
-[ext_resource type="PackedScene" uid="uid://b7ixidjwrf1em" path="res://tongs.tscn" id="14_3xvbi"]
+[ext_resource type="PackedScene" uid="uid://bv3xoqkum1rvo" path="res://tongs.tscn" id="14_3xvbi"]
 [ext_resource type="PackedScene" uid="uid://dp4nmgrwgc8s6" path="res://mug.tscn" id="15_nb1li"]
+[ext_resource type="PackedScene" uid="uid://b4lu0iwitb6g3" path="res://oven_dish.tscn" id="16_h2wjf"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_doliq"]
 size = Vector3(2.66064, 3.8479, 0.490112)
@@ -63,6 +65,12 @@ environment = SubResource("Environment_2lbfe")
 
 [node name="Pot" parent="Kitchen" instance=ExtResource("6_xesm6")]
 transform = Transform3D(-0.629958, 0, -0.77663, 0, 1, 0, 0.77663, 0, -0.629958, -0.0658503, 1.00474, -2.06655)
+
+[node name="OvenDish" parent="Kitchen" instance=ExtResource("16_h2wjf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.235703, 0.357275, -2.06765)
+
+[node name="plate_022" parent="Kitchen" instance=ExtResource("9_i6oi2")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.40486, 0.93523, 0)
 
 [node name="Player" parent="." instance=ExtResource("5_id05n")]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 1.08256, 0)
