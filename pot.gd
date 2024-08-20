@@ -104,7 +104,7 @@ func _on_area_3d_body_exited(body):
 
 func _on_area_3d_area_entered(area):
 	var body = area.get_parent()
-	var glass := body as RigidBody3D #Glass
+	var glass := body as Mug #Glass
 	if glass:
 		valid_to_fill = true
 		var temp_player = get_tree().get_first_node_in_group("Player")
@@ -115,8 +115,7 @@ func _on_area_3d_area_entered(area):
 
 func _on_area_3d_area_exited(area):
 	var body = area.get_parent()
-	var glass := body as RigidBody3D #Glass
-	if glass:
+	if body is Mug:
 		valid_to_fill = false
 		var temp_player = get_tree().get_first_node_in_group("Player")
 		temp_player.interact_label.visible = false

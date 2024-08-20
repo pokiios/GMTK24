@@ -17,7 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://b1mswej1455m4" path="res://salmon.tscn" id="13_oligi"]
 [ext_resource type="PackedScene" uid="uid://bv3xoqkum1rvo" path="res://tongs.tscn" id="14_3xvbi"]
 [ext_resource type="PackedScene" uid="uid://dp4nmgrwgc8s6" path="res://mug.tscn" id="15_nb1li"]
-[ext_resource type="PackedScene" uid="uid://b4lu0iwitb6g3" path="res://oven_dish.tscn" id="16_h2wjf"]
+[ext_resource type="PackedScene" uid="uid://dtxkmlvgtkix2" path="res://oven_dish.tscn" id="16_h2wjf"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_doliq"]
 size = Vector3(2.66064, 3.8479, 0.490112)
@@ -94,6 +94,7 @@ omni_attenuation = 0.5
 [node name="Countdown" parent="CanvasLayer" instance=ExtResource("7_ltseb")]
 offset_top = 20.0
 offset_bottom = 20.0
+timer_name = "Game"
 
 [node name="board_cutting_board_002" parent="." instance=ExtResource("10_p7ujf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.43455, 0.903806, -0.788935)
