@@ -82,8 +82,8 @@ texture = ExtResource("3_f2718")
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -200.0
-offset_bottom = 196.0
+offset_left = -400.0
+offset_bottom = 214.0
 grow_horizontal = 0
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
@@ -105,6 +105,7 @@ layout_mode = 2
 [node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/MarginContainer2/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("5_6u8js")
+theme_override_font_sizes/normal_font_size = 22
 bbcode_enabled = true
 text = "boil at least 2 potatoes"
 fit_content = true
@@ -112,6 +113,7 @@ fit_content = true
 [node name="RichTextLabel4" type="RichTextLabel" parent="CanvasLayer/MarginContainer2/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("5_6u8js")
+theme_override_font_sizes/normal_font_size = 22
 bbcode_enabled = true
 text = "drain and mash the potatoes"
 fit_content = true
@@ -119,6 +121,7 @@ fit_content = true
 [node name="RichTextLabel2" type="RichTextLabel" parent="CanvasLayer/MarginContainer2/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("5_6u8js")
+theme_override_font_sizes/normal_font_size = 22
 bbcode_enabled = true
 text = "put the mash, and at least 4 slices of fish in the oven dish to bake"
 fit_content = true
@@ -126,5 +129,13 @@ fit_content = true
 [node name="RichTextLabel3" type="RichTextLabel" parent="CanvasLayer/MarginContainer2/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("5_6u8js")
+theme_override_font_sizes/normal_font_size = 22
 text = "plate up"
+fit_content = true
+
+[node name="RichTextLabel5" type="RichTextLabel" parent="CanvasLayer/MarginContainer2/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("5_6u8js")
+theme_override_font_sizes/normal_font_size = 22
+text = "serve plate in to green box"
 fit_content = true
