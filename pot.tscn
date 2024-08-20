@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bjj345xkkhs22"]
+[gd_scene load_steps=14 format=3 uid="uid://bjj345xkkhs22"]
 
 [ext_resource type="PackedScene" uid="uid://dy2hvy7a2yxeq" path="res://Assets/Models/Pot/Pot.fbx" id="1_pln6u"]
 [ext_resource type="Script" path="res://pot.gd" id="2_4lnjv"]
@@ -6,7 +6,9 @@
 [ext_resource type="Material" uid="uid://bcye12ji8fbb3" path="res://simple_water.tres" id="3_yf55n"]
 [ext_resource type="PackedScene" uid="uid://tn3ar6v6f1be" path="res://Mash.tscn" id="4_pmw7s"]
 [ext_resource type="PackedScene" uid="uid://ojrwrgv4ui63" path="res://Scenes/steam_particles.tscn" id="6_0ti8h"]
-[ext_resource type="PackedScene" uid="uid://ddbt6bf8nvwg3" path="res://Scenes/Utility/countdown.tscn" id="7_kaj74"]
+[ext_resource type="Script" path="res://Scripts/Utility/CountdownPot.gd" id="7_meuyi"]
+[ext_resource type="Theme" uid="uid://dm63onoxy1vv1" path="res://UI/Theme/UI_theme.tres" id="8_f3osu"]
+[ext_resource type="AudioStream" uid="uid://disxwkx3wayqo" path="res://Assets/SFX/timer_ding.wav" id="9_t06sq"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_uix8k"]
 size = Vector3(0.015, 0.015, 0.003)
@@ -59,16 +61,34 @@ bus = &"SFX"
 
 [node name="SteamParticles" parent="." index="5" instance=ExtResource("6_0ti8h")]
 
-[node name="Countdown" parent="." index="6" instance=ExtResource("7_kaj74")]
+[node name="Countdown" type="Control" parent="." index="6"]
+layout_mode = 3
 anchors_preset = 7
+anchor_left = 0.5
 anchor_top = 1.0
+anchor_right = 0.5
 anchor_bottom = 1.0
 offset_top = -40.0
 offset_bottom = -40.0
+grow_horizontal = 2
 grow_vertical = 0
+script = ExtResource("7_meuyi")
 timer_name = "Pot"
+
+[node name="Label" type="Label" parent="Countdown" index="0"]
+offset_right = 40.0
+offset_bottom = 40.0
+theme = ExtResource("8_f3osu")
+
+[node name="Timer" type="Timer" parent="Countdown" index="1"]
+wait_time = 300.0
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Countdown" index="2"]
+stream = ExtResource("9_t06sq")
+bus = &"SFX"
 
 [connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
 [connection signal="area_exited" from="Area3D" to="." method="_on_area_3d_area_exited"]
 [connection signal="body_entered" from="Area3D2" to="." method="_on_area_3d_2_body_entered"]
 [connection signal="body_exited" from="Area3D2" to="." method="_on_area_3d_2_body_exited"]
+[connection signal="timeout" from="Countdown/Timer" to="Countdown" method="_on_timer_timeout"]

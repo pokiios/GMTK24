@@ -3,6 +3,7 @@ class_name Pot
 
 var valid_to_fill = false
 var is_full = false
+var has_started_boiling = false
 var is_boiling = false
 var food_boiled = false
 var player_in_pot = false
@@ -23,7 +24,8 @@ var pour
 var boiled
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$Countdown/Timer.wait_time = 10
+	#$Countdown/Timer.wait_time = 10
+	$Countdown/Timer.timeout.connect(_on_boil_timeout)
 	$Countdown/Label.visible = false
 	$SteamParticles.emitting = false
 	pour = preload("res://Assets/SFX/water_pour.wav")
@@ -57,17 +59,12 @@ func _process(delta):
 			is_boiling = false
 			$SteamParticles.emitting = false
 	
-	if is_boiling && has_food.size() >= 2:
+	if is_boiling && has_food.size() >= 2 && !has_started_boiling:
 		is_boiling = false
-		$SteamParticles.emitting = false
+		has_started_boiling = true
 		$Countdown/Label.visible = true
-		$Countdown/Timer.start()
-		await $Countdown/Timer.timeout
-		$Countdown/Timer.stop()
-		$Countdown/Label.visible = false
-		boil_complete.emit()
-		$AudioStreamPlayer3D.stop()
-		food_boiled = true
+		$Countdown/Timer.start(10)
+		
 	
 	if food_boiled && has_food.size() >= 2 && !is_full:
 		if player_in_pot && player.just_jumped && mash_count < 2:
@@ -155,3 +152,9 @@ func _play_sound(name: String):
 			$AudioStreamPlayer3D.stream = boiled
 	$AudioStreamPlayer3D.play()
 	
+func _on_boil_timeout():
+		$Countdown/Label.visible = false
+		boil_complete.emit()
+		$SteamParticles.emitting = false
+		$AudioStreamPlayer3D.stop()
+		food_boiled = true

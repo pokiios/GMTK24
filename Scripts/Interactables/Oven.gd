@@ -46,10 +46,12 @@ func _on_handle_area_body_exited(body: Node3D) -> void:
 
 func _on_knob_area_body_entered(body: Node3D) -> void:
 	if body is Player:
+		is_next_to_knob = true
 		body.interact_label.visible = true
 
 func _on_knob_area_body_exited(body: Node3D) -> void:
 	if body is Player:
+		is_next_to_knob = false
 		body.interact_label.visible = false
 
 func _move_oven_door():
