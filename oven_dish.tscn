@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://b4lu0iwitb6g3"]
+[gd_scene load_steps=10 format=4 uid="uid://b4lu0iwitb6g3"]
 
 [ext_resource type="PackedScene" uid="uid://cwvppoou0ooj7" path="res://Assets/Models/Dutch Oven/pan_dutch_oven.glb" id="1_yk1mg"]
 [ext_resource type="Script" path="res://oven_dish.gd" id="2_1b8at"]
@@ -7,9 +7,12 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_cqrvr"]
 size = Vector3(0.327583, 0.00928906, 0.202209)
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_napyg"]
-radius = 0.0934518
-height = 0.38348
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ixhob"]
+height = 0.119471
+radius = 0.0904598
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_awrtm"]
+size = Vector3(0.166885, 0.103271, 0.201416)
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_rqlj7"]
 _surfaces = [{
@@ -60,8 +63,16 @@ shape = SubResource("BoxShape3D_cqrvr")
 [node name="Area3D" type="Area3D" parent="." index="1"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0"]
-transform = Transform3D(-0.0169289, -0.999857, 0, 0.999857, -0.0169289, 0, 0, 0, 1, 0, 0, -0.00828043)
-shape = SubResource("CapsuleShape3D_napyg")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0853899, 0, 0)
+shape = SubResource("CylinderShape3D_ixhob")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Area3D" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0796496, 0, 0)
+shape = SubResource("CylinderShape3D_ixhob")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Area3D" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000776812, -0.000610352, -0.0032959)
+shape = SubResource("BoxShape3D_awrtm")
 
 [node name="Pie" type="Node3D" parent="." index="2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0410443, 0)
@@ -212,6 +223,9 @@ skeleton = NodePath("")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D2" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0327544, 0)
 shape = SubResource("CylinderShape3D_fajkh")
+
+[node name="pot space" type="Node3D" parent="." index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0138507, 0)
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
