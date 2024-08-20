@@ -29,7 +29,7 @@ func _ready():
 	for child in self.get_parent().get_children():
 		if child is Oven:
 			oven = child
-	for child in self.get_parent().get_parent().get_children():
+	for child in self.get_parent().get_children():
 		if child is Player:
 			player = child
 	pass # Replace with function body.

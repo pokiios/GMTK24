@@ -28,9 +28,17 @@ func _process(delta):
 	
 	if oven.oven_is_open && needs_moved:
 		global_position.z += 0.3
+		for each in has_fish:
+			each.global_position.z+=0.3
+		for each in has_mash:
+			each.global_position.z+=0.3
 		needs_moved = false
 	if !oven.oven_is_open && !needs_moved:
 		global_position.z -= 0.3
+		for each in has_fish:
+			each.global_position.z-=0.3
+		for each in has_mash:
+			each.global_position.z-=0.3
 		needs_moved = true
 	
 	if Input.is_action_just_pressed("interact") && valid_to_plate:
