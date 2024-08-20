@@ -46,16 +46,22 @@ func _move_bottom_door():
 func _on_top_handle_area_body_entered(body: Node3D) -> void:
 	if body is Player:
 		next_to_top_handle = true
+		body.interact_label.visible = true
 
 func _on_top_handle_area_body_exited(body: Node3D) -> void:
-	next_to_top_handle = false
+	if body is Player:
+		next_to_top_handle = false
+		body.interact_label.visible = false
 
 func _on_bottom_handle_area_body_entered(body: Node3D) -> void:
 	if body is Player:
 		next_to_bottom_handle = true
+		body.interact_label.visible = true
 
 func _on_bottom_handle_area_body_exited(body: Node3D) -> void:
-	next_to_bottom_handle = false
+	if body is Player:
+		next_to_bottom_handle = false
+		body.interact_label.visible = false
 
 func _play_sound(name: String):
 	match(name):

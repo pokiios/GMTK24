@@ -34,9 +34,12 @@ func _input(event: InputEvent) -> void:
 func _on_tap_area_body_entered(body: Node3D) -> void:
 	if body is Player:
 		player_next_to_tap = true
+		body.interact_label.visible = true
 			
 func _on_tap_area_body_exited(body: Node3D) -> void:
-	player_next_to_tap = false
+	if body is Player:
+		player_next_to_tap = false
+		body.interact_label.visible = false
 
 func _on_glass_area_body_entered(body: Node3D) -> void:
 	if body is Mug:

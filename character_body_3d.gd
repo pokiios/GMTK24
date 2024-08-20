@@ -12,7 +12,7 @@ var mouse_right_down: bool = false
 var just_jumped : bool = false
 var jump_timer : Timer
 var mouse_toggle : bool = false
-
+var interact_label
 
 @onready var camera = $Pivot/PlayerCamera
 var carrying :RigidBody3D = null
@@ -29,6 +29,8 @@ func _init():
 	jump_timer.timeout.connect(_on_jump_timeout)
 
 func _ready():
+	interact_label = $CanvasLayer/InteractLabel
+	interact_label.visible = false
 	for child in self.get_parent().get_children():
 		if child is Pot:
 			pot = child
