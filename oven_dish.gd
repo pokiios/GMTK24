@@ -28,8 +28,11 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	
-	for each in $"pot space".get_children():
+	for each in has_fish:
 		each.position = $"pot space".global_position
+	for each in has_mash:
+		each.position = $"pot space".global_position	
+		
 	if oven.oven_is_open && needs_moved:
 		position.z += 0.3
 		
@@ -72,13 +75,13 @@ func _on_area_3d_body_entered(body):
 	if body is mash:
 		if has_mash.find(body) == -1:
 			has_mash.push_back(body)
-			$"pot space".add_child(body)
-			body.position = $"pot space".position
+			add_child(body)
+			body.freeze = true
 	elif body is SalmonSlice:
 		if has_fish.find(body) == -1:
 			has_fish.push_back(body)
-			$"pot space".add_child(body)
-			body.position = $"pot space".position
+			add_child(body)
+			body.freeze = true
 			
 
 	pass # Replace with function body.
@@ -89,12 +92,12 @@ func _on_area_3d_body_exited(body):
 		for each in len(has_mash):
 			if has_mash[each-1] == body:
 				has_mash.remove_at(each-1)
-				$"pot space".remove_child(body)
+				remove_child(body)
 	elif body is SalmonSlice:
 		for each in len(has_fish):
 			if has_fish[each-1] == body:
 				has_fish.remove_at(each-1)
-				$"pot space".remove_child(body)
+				remove_child(body)
 
 	pass # Replace with function body.
 

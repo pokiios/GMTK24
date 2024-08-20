@@ -221,6 +221,8 @@ stream = ExtResource("4_1hldu")
 [node name="Countdown" parent="." index="5" instance=ExtResource("5_tnsdu")]
 timer_name = "Oven"
 
+[node name="pot space" type="Node3D" parent="." index="6"]
+
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
 [connection signal="area_entered" from="Area3D2" to="." method="_on_area_3d_2_area_entered"]

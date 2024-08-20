@@ -19,7 +19,7 @@ func _on_body_entered(body):
 		if Plate.is_pie:
 			#,make scene change here
 			MusicPlayer._transition_out()
-			await
+			
 			get_tree().change_scene_to_packed(win_scene)
 			pass
 		
