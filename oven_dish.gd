@@ -40,7 +40,9 @@ func _process(delta):
 			plate_completed.emit()
 	
 	if !oven.oven_is_open && has_mash.size() >=1 && has_fish.size() >= 4:
+		$AudioStreamPlayer3D.play()
 		await get_tree().create_timer(1.0).timeout
+		$AudioStreamPlayer3D.stop()
 		food_cooked = true
 		var length = has_mash.size()
 		for each in length:

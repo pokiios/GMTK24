@@ -107,6 +107,8 @@ func _on_area_3d_area_entered(area):
 	var glass := body as RigidBody3D #Glass
 	if glass:
 		valid_to_fill = true
+		var temp_player = get_tree().get_first_node_in_group("Player")
+		temp_player.interact_label.visible = true
 		#if glass.full = true
 	pass # Replace with function body.
 
@@ -116,6 +118,8 @@ func _on_area_3d_area_exited(area):
 	var glass := body as RigidBody3D #Glass
 	if glass:
 		valid_to_fill = false
+		var temp_player = get_tree().get_first_node_in_group("Player")
+		temp_player.interact_label.visible = false
 	pass # Replace with function body.
 
 
