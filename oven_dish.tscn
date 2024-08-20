@@ -219,6 +219,12 @@ shape = SubResource("CylinderShape3D_fajkh")
 stream = ExtResource("4_1hldu")
 
 [node name="Countdown" parent="." index="5" instance=ExtResource("5_tnsdu")]
+anchors_preset = 7
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_bottom = -40.0
+grow_vertical = 0
 timer_name = "Oven"
 
 [node name="pot space" type="Node3D" parent="." index="6"]

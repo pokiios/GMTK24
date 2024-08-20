@@ -166,7 +166,7 @@ func _on_jump_timeout():
 	just_jumped = false
 	
 func _on_boiled():
-	$CanvasLayer/MarginContainer2/PanelContainer/MarginContainer/VBoxContainer/RichTextLabel.set_text("[s]boil at least 2 potatoes[/s]")
+	$CanvasLayer/MarginContainer2/PanelContainer/MarginContainer/VBoxContainer/RichTextLabel.set_text("[s]chop potato and boil at least 2 chunks[/s]")
 
 func _on_mashed():
 	$CanvasLayer/MarginContainer2/PanelContainer/MarginContainer/VBoxContainer/RichTextLabel4.set_text("[s]drain and mash the potatoes[/s]")

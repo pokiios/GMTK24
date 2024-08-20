@@ -69,7 +69,7 @@ func _process(delta):
 	pass
 	if food_cooked:
 		$Pie.visible = true
-		bake_completed.emit
+		bake_completed.emit()
 
 func _on_area_3d_body_entered(body):
 	if body is mash:
