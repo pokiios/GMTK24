@@ -76,6 +76,7 @@ script = ExtResource("7_meuyi")
 timer_name = "Pot"
 
 [node name="Label" type="Label" parent="Countdown" index="0"]
+layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 theme = ExtResource("8_f3osu")

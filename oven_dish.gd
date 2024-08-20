@@ -51,11 +51,10 @@ func _process(delta):
 	if !oven.oven_is_open && has_mash.size() >=1 && has_fish.size() >= 4:
 		$Countdown/Label.visible = true
 		$Countdown/Timer.start()
-		$AudioStreamPlayer3D.play()
+		
 		await $Countdown/Timer.timeout
 		$Countdown/Timer.stop()
 		$Countdown/Label.visible = false
-		$AudioStreamPlayer3D.stop()
 		food_cooked = true
 		var length = has_mash.size()
 		for each in length:
@@ -104,15 +103,15 @@ func _on_area_3d_body_exited(body):
 
 func _on_area_3d_2_area_entered(area):
 	var body = area.get_parent()
-	var plate := body as RigidBody3D#Plate #Glass
-	if plate:
+	var Plate := body as plate#Plate #Glass
+	if Plate:
 		valid_to_plate = true
 	pass # Replace with function body.
 
 
 func _on_area_3d_2_area_exited(area):
 	var body = area.get_parent()
-	var plate := body as RigidBody3D#Plate #Glass
-	if plate:
+	var Plate := body as plate#Plate #Glass
+	if Plate:
 		valid_to_plate = false
 	pass # Replace with function body.
