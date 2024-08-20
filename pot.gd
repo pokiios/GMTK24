@@ -53,7 +53,6 @@ func _process(delta):
 		if oven.stove_is_on && is_full:
 			is_boiling = true
 			$SteamParticles.emitting = true
-			_play_sound("boil")
 			#need steam particles
 		else: 
 			is_boiling = false
@@ -61,6 +60,7 @@ func _process(delta):
 	
 	if is_boiling && has_food.size() >= 2 && !has_started_boiling:
 		is_boiling = false
+		_play_sound("boil")
 		has_started_boiling = true
 		$Countdown/Label.visible = true
 		$Countdown/Timer.start(10)

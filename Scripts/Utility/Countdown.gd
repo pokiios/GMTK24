@@ -18,7 +18,7 @@ func _process(delta: float) -> void:
 	label.text = "%02d:%02d" % time_left()
 
 func _on_timer_timeout() -> void:
-	$AudioStreamPlayer3D.play()
+	
 	timer.stop()
 	match(timer_name):
 		"Game":

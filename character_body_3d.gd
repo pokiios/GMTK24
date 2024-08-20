@@ -95,9 +95,11 @@ func _physics_process(delta):
 				for child in carrying.get_children():
 					var cast_child := child as Area3D
 					if cast_child:
-						var child_shape := cast_child.get_child(0) as CollisionShape3D
-						if child_shape:
-							child_shape.disabled = false
+						for each in cast_child.get_children():
+							if each is CollisionShape3D:
+								each.disabled = false
+					elif child is CollisionShape3D:
+						child.disabled = true
 							
 				var cast_carrying := carrying as Knife
 				if cast_carrying:
@@ -117,9 +119,11 @@ func _physics_process(delta):
 		for child in carrying.get_children():
 			var cast_child := child as Area3D
 			if cast_child:
-				var child_shape := cast_child.get_child(0) as CollisionShape3D
-				if child_shape:
-					child_shape.disabled = true
+				for each in cast_child.get_children():
+					if each is CollisionShape3D:
+						each.disabled = false
+			elif child is CollisionShape3D:
+				child.disabled = false
 		carrying = null
 	
 	#if Input.is_action_just_pressed("left_click") && carrying:

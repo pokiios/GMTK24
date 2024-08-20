@@ -1,9 +1,8 @@
-[gd_scene load_steps=11 format=4 uid="uid://dtxkmlvgtkix2"]
+[gd_scene load_steps=10 format=4 uid="uid://dtxkmlvgtkix2"]
 
 [ext_resource type="PackedScene" uid="uid://cwvppoou0ooj7" path="res://Assets/Models/Dutch Oven/pan_dutch_oven.glb" id="1_yk1mg"]
 [ext_resource type="Script" path="res://oven_dish.gd" id="2_1b8at"]
 [ext_resource type="Material" uid="uid://d2sac0o84lqtd" path="res://addons/pixpal_tools/Imphenzia/PixPal/Materials/M_ImphenziaPixPal.tres" id="3_40mjg"]
-[ext_resource type="AudioStream" uid="uid://c5amp34wppn73" path="res://Assets/SFX/oven_running.wav" id="4_1hldu"]
 [ext_resource type="PackedScene" uid="uid://ddbt6bf8nvwg3" path="res://Scenes/Utility/countdown.tscn" id="5_tnsdu"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cqrvr"]
@@ -216,7 +215,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0327544, 0)
 shape = SubResource("CylinderShape3D_fajkh")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." index="4"]
-stream = ExtResource("4_1hldu")
 
 [node name="Countdown" parent="." index="5" instance=ExtResource("5_tnsdu")]
 anchors_preset = 7
