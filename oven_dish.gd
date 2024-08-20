@@ -10,7 +10,8 @@ var has_fish : Array
 var oven : Oven
 var plate_for_pie : plate
 
-
+signal bake_completed
+signal plate_completed
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	for child in self.get_parent().get_children():
@@ -35,8 +36,10 @@ func _process(delta):
 	if Input.is_action_just_pressed("interact") && valid_to_plate:
 			$Pie.visible = false
 			plate_for_pie.pie.visible = true
+			plate_completed.emit()
 	
 	if !oven.oven_is_open && has_mash.size() >=1 && has_fish.size() >= 4:
+		await get_tree().create_timer(1.0).timeout
 		food_cooked = true
 		var length = has_mash.size()
 		for each in length:
@@ -50,6 +53,7 @@ func _process(delta):
 	pass
 	if food_cooked:
 		$Pie.visible = true
+		bake_completed.emit
 
 func _on_area_3d_body_entered(body):
 	if body is mash:

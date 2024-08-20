@@ -72,7 +72,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.235703, 0.357275, -2.06765
 [node name="plate_022" parent="Kitchen" instance=ExtResource("9_i6oi2")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.40486, 0.93523, 0)
 
-[node name="Player" parent="." instance=ExtResource("5_id05n")]
+[node name="Player" parent="Kitchen" instance=ExtResource("5_id05n")]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 1.08256, 0)
 SPEED = 1.0
 JUMP_VELOCITY = 2.5

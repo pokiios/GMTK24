@@ -18,12 +18,27 @@ var mouse_toggle : bool = false
 var carrying :RigidBody3D = null
 var carry_col
 
+var pot : Pot
+var oven_dish : ovenDish
+
 func _init():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	jump_timer = Timer.new()
 	add_child(jump_timer)
 	jump_timer.timeout.connect(_on_jump_timeout)
 
+func _ready():
+	for child in self.get_parent().get_children():
+		if child is Pot:
+			pot = child
+		elif child is ovenDish:
+			oven_dish = child
+			
+	pot.boil_complete.connect(_on_boiled)
+	pot.mash_complete.connect(_on_mashed)
+	oven_dish.bake_completed.connect(_on_baked)
+	oven_dish.plate_completed.connect(_on_plated)
+	
 func _process(delta: float) -> void:
 	if mouse_toggle:
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
@@ -144,3 +159,15 @@ func _unhandled_input(event):
 
 func _on_jump_timeout():
 	just_jumped = false
+	
+func _on_boiled():
+	$CanvasLayer/MarginContainer2/PanelContainer/MarginContainer/VBoxContainer/RichTextLabel.set_text("[s]boil at least 2 potatoes[/s]")
+
+func _on_mashed():
+	$CanvasLayer/MarginContainer2/PanelContainer/MarginContainer/VBoxContainer/RichTextLabel4.set_text("[s]drain and mash the potatoes[/s]")
+	
+func _on_baked():
+	$CanvasLayer/MarginContainer2/PanelContainer/MarginContainer/VBoxContainer/RichTextLabel2.set_text("[s]put the mash, and at least 4 slices of fish in the oven dish to bake[/s]")
+	
+func _on_plated():
+	$CanvasLayer/MarginContainer2/PanelContainer/MarginContainer/VBoxContainer/RichTextLabel3.set_text("[s]plate up[/s]")	

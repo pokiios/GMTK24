@@ -16,6 +16,9 @@ var is_water_poured : bool = false
 @export var chunk_scene : PackedScene
 @export var mash_scene : PackedScene
 
+signal boil_complete
+signal mash_complete
+
 var pour
 var boiled
 # Called when the node enters the scene tree for the first time.
@@ -55,7 +58,7 @@ func _process(delta):
 	if is_boiling && has_food.size() >= 2:
 		is_boiling = false
 		await get_tree().create_timer(1.0).timeout
-		print("potatoes are boiled")
+		boil_complete.emit()
 		$AudioStreamPlayer3D.stop()
 		food_boiled = true
 	
@@ -81,7 +84,7 @@ func _process(delta):
 			var mash = mash_scene.instantiate()
 			self.get_parent().get_parent().add_child(mash)
 			mash.global_position = $Area3D2.global_position
-			print("mash")
+			mash_complete.emit()
 			food_boiled = false
 			pass
 	pass
