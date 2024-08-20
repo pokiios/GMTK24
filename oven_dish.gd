@@ -14,6 +14,8 @@ signal bake_completed
 signal plate_completed
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$Countdown/Timer.wait_time = 10
+	$Countdown/Label.visible = false
 	for child in self.get_parent().get_children():
 		if child is Oven:
 			oven = child
@@ -44,8 +46,12 @@ func _process(delta):
 			plate_completed.emit()
 	
 	if !oven.oven_is_open && has_mash.size() >=1 && has_fish.size() >= 4:
+		$Countdown/Label.visible = true
+		$Countdown/Timer.start()
 		$AudioStreamPlayer3D.play()
-		await get_tree().create_timer(1.0).timeout
+		await $Countdown/Timer.timeout
+		$Countdown/Timer.stop()
+		$Countdown/Label.visible = false
 		$AudioStreamPlayer3D.stop()
 		food_cooked = true
 		var length = has_mash.size()

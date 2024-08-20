@@ -1,10 +1,10 @@
 extends Area3D
 class_name WinZone
 
-var start_scene
+var win_scene
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	start_scene = preload("res://Scenes/Menu/start_menu.tscn")
+	win_scene = preload("res://Scenes/Levels/win_menu.tscn")
 	pass # Replace with function body.
 
 
@@ -18,7 +18,9 @@ func _on_body_entered(body):
 	if Plate:
 		if Plate.is_pie:
 			#,make scene change here
-			get_tree().change_scene_to_packed(start_scene)
+			MusicPlayer._transition_out()
+			await
+			get_tree().change_scene_to_packed(win_scene)
 			pass
 		
 	pass # Replace with function body.

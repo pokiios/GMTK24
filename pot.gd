@@ -23,6 +23,8 @@ var pour
 var boiled
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$Countdown/Timer.wait_time = 10
+	$Countdown/Label.visible = false
 	$SteamParticles.emitting = false
 	pour = preload("res://Assets/SFX/water_pour.wav")
 	boiled = preload("res://Assets/SFX/boiling_water.wav")
@@ -57,7 +59,12 @@ func _process(delta):
 	
 	if is_boiling && has_food.size() >= 2:
 		is_boiling = false
-		await get_tree().create_timer(1.0).timeout
+		$SteamParticles.emitting = false
+		$Countdown/Label.visible = true
+		$Countdown/Timer.start()
+		await $Countdown/Timer.timeout
+		$Countdown/Timer.stop()
+		$Countdown/Label.visible = false
 		boil_complete.emit()
 		$AudioStreamPlayer3D.stop()
 		food_boiled = true
@@ -104,7 +111,7 @@ func _on_area_3d_body_exited(body):
 
 func _on_area_3d_area_entered(area):
 	var body = area.get_parent()
-	var glass := body as RigidBody3D #Glass
+	var glass := body as Mug #Glass
 	if glass:
 		valid_to_fill = true
 		var temp_player = get_tree().get_first_node_in_group("Player")
@@ -115,8 +122,7 @@ func _on_area_3d_area_entered(area):
 
 func _on_area_3d_area_exited(area):
 	var body = area.get_parent()
-	var glass := body as RigidBody3D #Glass
-	if glass:
+	if body is Mug:
 		valid_to_fill = false
 		var temp_player = get_tree().get_first_node_in_group("Player")
 		temp_player.interact_label.visible = false

@@ -7,7 +7,6 @@ extends Node
 
 func _ready() -> void:
 	game_over_scene = preload("res://Scenes/Menu/game_over.tscn")
-	timer.start()
 
 func time_left():
 	var time_left = timer.time_left
